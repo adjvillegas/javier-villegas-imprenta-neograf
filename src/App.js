@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css'; 
 
 // Component
 import NavBar from './components/Header/NavBar'
 import ItemListContainer from './components/Body/ItemListContainer'
 
-class App extends React.Component {
+class App extends Component {
     render() {
         return (
             <div>
