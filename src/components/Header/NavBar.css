@@ -1,0 +1,9 @@
+.my-header {
+    background-color: rgb(248, 249, 250, .3);
+}
+
+.my-header h3 {
+    margin-top: 0.3em;
+    margin-left: 1em;
+    margin-bottom: 0.3em;
+}
