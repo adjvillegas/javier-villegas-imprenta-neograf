@@ -1,18 +1,12 @@
 import React from 'react'
 
-// Stilos propios del componente
-import './CartWidget.css'
-
-// Imagenes - Logos - Iconos
-import logo from './LogoNegro.png'
+// get our fontawesome imports
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function CartWidget() {
     return (
-        <div className=" col-6">
-            <a className="navbar-brand" href="#Body">
-                <img src={logo} className="navLogo" alt="Imagen de Logo"></img>
-            </a>
-        </div>
+        <li className="navbar-item"><FontAwesomeIcon icon={faShoppingCart} size="2x" color="red"/></li>
     )
 }
 

@@ -3,7 +3,7 @@ import './App.css';
 
 // Component
 import NavBar from './components/Header/NavBar'
-import ItemListContainer from './components/Body/ItemListContainer'
+import ItemListContainer from './components/Main/ItemListContainer'
 
 class App extends Component {
     render() {
