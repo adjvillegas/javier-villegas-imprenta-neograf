@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 //Components
-import ItemList from './ItemList'
+import ItemList from '../Items/ItemList'
 
 const ItemListContainer = (props) => {
 

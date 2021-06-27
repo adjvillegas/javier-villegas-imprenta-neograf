@@ -1,7 +1,11 @@
 import React from 'react'
 
-//Component
-import ItemCount from './ItemCount'
+// get our fontawesome imports
+import { faGlasses } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+//LINK ROUTER DOM
+import { Link } from 'react-router-dom';
 
 const Item = (props) => {
 
@@ -12,8 +16,10 @@ const Item = (props) => {
                     <h5>{props.product.descripcion}</h5>    
                     <p>{props.product.nota}</p>
                 </div>
-                <div className="card-footer">
-                    <ItemCount key={props.product.id} stock={props.product.stock}/>
+                <div className="card-footer d-flex justify-content-end">
+                    <Link to={`/detail/${props.product.id}`}>
+                        <FontAwesomeIcon icon={faGlasses}/>
+                    </Link>    
                 </div>                
             </div>
             

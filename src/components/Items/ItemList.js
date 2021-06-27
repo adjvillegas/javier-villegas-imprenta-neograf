@@ -2,7 +2,7 @@
 import React from 'react'
 
 //Component
-import Item from './Item'
+import Item from '../Items/Item'
 
 const ItemList = ({product}) => {
     

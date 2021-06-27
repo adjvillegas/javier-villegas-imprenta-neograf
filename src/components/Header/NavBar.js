@@ -1,5 +1,8 @@
 import React from 'react'
 
+//LINK ROUTER DOM
+import { Link } from 'react-router-dom';
+
 // Component
 import CartWidget from './CartWidget'
 
@@ -16,16 +19,17 @@ const navBar = () => {
         <nav>
             <div className="navbar navbar-expand-lg navbar-light bg-light justify-content-evenly">
                 <div className=" col-6">
-                    <a className="navbar-brand" href="#Body">
-                    <img src={logo} className="navLogo" alt="Imagen de Logo"></img>
-                    </a>
+                    <Link to="/" className="navbar-brand">
+                        <img src={logo} className="navLogo" alt="Imagen de Logo"></img>
+                    </Link>
                 </div>
                 <div className="col-5">
                     <div className="collapse navbar-collapse justify-content-end">
                         <ul className="navbar-nav">
-                            <li className="navbar-item"><a href="#Body" className="nav-link">Inicio</a></li>
-                            <li className="navbar-item"><a href="#Body" className="nav-link">Productos</a></li>
-                            <li className="navbar-item"><a href="#Body" className="nav-link">Iniciar Sesión</a></li>
+                            <li className="navbar-item"><Link to="/" className="nav-link">Inicio</Link></li>
+                            <li className="navbar-item"><Link to="/product" className="nav-link">Productos</Link></li>
+                            <li className="navbar-item"><Link to="/contact" className="nav-link">Contactanos</Link></li>
+                            <li className="navbar-item"><Link to="/login" className="nav-link">Iniciar Sesión</Link></li>
                             <CartWidget/>
                         </ul>
                     </div>
