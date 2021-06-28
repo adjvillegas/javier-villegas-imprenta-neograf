@@ -1,7 +1,7 @@
 import React from 'react'
 
 //Component
-import ItemDetailTitles from './components/ItemDetails/ItemDetailTitles'
+// import ItemDetailTitles from './components/ItemDetails/ItemDetailTitles'
 
 //Styles
 import './ItemDetailContainer.css'
@@ -9,7 +9,7 @@ import './ItemDetailContainer.css'
 const ItemDetailContainer = () => {
     return (
         <div className="container-fluid">
-            <ItemDetailTitles />
+            {/* <ItemDetailTitles /> */}
 
 
             <div className="container-fluid">
