@@ -1,0 +1,21 @@
+.detail-nav {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    background-color: rgb(196, 59, 252, 0.8);
+}
+
+.detail-nav p {
+    margin-bottom: 0;
+    margin-left: 2%;
+}
+
+c {
+    height:100vh;
+}
+
+.cuadro {
+    height: 100%;
+    width: 100%;
+    border: 1px solid black;
+}

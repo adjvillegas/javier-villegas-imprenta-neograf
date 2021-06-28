@@ -3,6 +3,10 @@ import React from 'react'
 //LINK ROUTER DOM
 import { Link } from 'react-router-dom';
 
+// get our fontawesome imports
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Featured = () => {
     return (
         <div>
@@ -18,7 +22,7 @@ const Featured = () => {
                 </div>
                 <div className="d-flex justify-content-center mt-1">
                     <Link to="/product">
-                        <button type="button" className="btn btn-outline-secondary btn-sm">Solicitar</button>
+                        <button type="button" className="btn btn-success btn-sm"><FontAwesomeIcon icon={faShoppingCart}/> Ingresar a la Tienda</button>
                     </Link>
                 </div>
             </section>   

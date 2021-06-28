@@ -28,7 +28,7 @@ const Carousel = () => {
 
                 <div className="carousel-item active" data-bs-interval="10000">
 
-                    <img src="img/imagen1-header.jpg" className="d-block w-100 content-h-carousel" alt="..."></img>
+                    <img src={process.env.PUBLIC_URL + "/img/imagen1-header.jpg"} className="d-block w-100 content-h-carousel" alt="imagen1-header"></img>
 
                     <div className="carousel-caption d-none d-md-block">
 
@@ -46,7 +46,7 @@ const Carousel = () => {
 
                 <div className="carousel-item" data-bs-interval="2000">
 
-                    <img src="img/imagen2-header.jpg" className="d-block w-100 content-h-carousel" alt="..."></img>
+                    <img src={process.env.PUBLIC_URL + "/img/imagen2-header.jpg"} className="d-block w-100 content-h-carousel" alt="imagen2-header"></img>
 
                     <div className="carousel-caption d-none d-md-block">
 
@@ -64,7 +64,7 @@ const Carousel = () => {
 
                 <div className="carousel-item">
 
-                    <img src="img/imagen3-header.jpg" className="d-block w-100 content-h-carousel" alt="Imagen3"></img>
+                    <img src={process.env.PUBLIC_URL + "/img/imagen3-header.jpg"} className="d-block w-100 content-h-carousel" alt="Imagen3"></img>
 
                     <div className="carousel-caption d-none d-md-block">
 

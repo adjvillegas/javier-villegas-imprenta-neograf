@@ -2,9 +2,9 @@ import React from 'react'
 
 const Contact = () => {
     return (
-        <div>
+        <main>
             <h1>Hola Contact</h1>
-        </div>
+        </main>
     )
 }
 

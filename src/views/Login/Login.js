@@ -2,9 +2,9 @@ import React from 'react'
 
 const Login = () => {
     return (
-        <div>
+        <main>
             <h1>Hola Login</h1>
-        </div>
+        </main>
     )
 }
 

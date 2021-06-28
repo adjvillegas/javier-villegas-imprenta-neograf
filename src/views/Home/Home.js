@@ -5,9 +5,9 @@ import HomeContainer from '../../components/Main/HomeContainer';
 
 const Home = () => {
     return (
-        <div>
+        <main>
             <HomeContainer/>
-        </div>
+        </main>
     )
 }
 

@@ -2,15 +2,14 @@
 import React from 'react'
 
 //Component
-import Item from '../Items/Item'
+import Item from './Item'
 
 const ItemList = ({product}) => {
     
     return (
-        
-                <div className="col">
-                <Item key={product.id} product={product} />
-                </div>
+        <div className="col">
+            <Item key={product.id} product={product} />
+        </div>
                             )
         
 }
