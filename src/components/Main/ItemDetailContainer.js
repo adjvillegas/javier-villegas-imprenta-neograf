@@ -1,27 +1,29 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 //Component
-// import ItemDetailTitles from './components/ItemDetails/ItemDetailTitles'
+import ItemDetailTitles from '../ItemDetails/ItemDetailTitle'
+import ItemDetailBody from '../ItemDetails/ItemDetailBody'
 
 //Styles
 import './ItemDetailContainer.css'
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({myId}) => {
+
+    const [detail, setDetail] = useState([])
+
+    useEffect(() => {
+
+        fetch('https://run.mocky.io/v3/1728e637-dbe7-4771-aeae-c2dcf19c2d5a').then(response => response.json())
+        .then((json) => {
+            setDetail(json.find( oObject => oObject.id === parseInt(myId)))
+        })
+
+    }, [myId])
+    
     return (
         <div className="container-fluid">
-            {/* <ItemDetailTitles /> */}
-
-
-            <div className="container-fluid">
-                <div className="row gx-2">
-                    <div className="col justify-content-center">
-                        <div className="cuadro"></div>
-                    </div>
-                    <div className="col">
-                        <div className="cuadro"></div>
-                    </div>
-                </div>
-            </div>
+            <ItemDetailTitles/>
+            <ItemDetailBody />
         </div>
     )
 }

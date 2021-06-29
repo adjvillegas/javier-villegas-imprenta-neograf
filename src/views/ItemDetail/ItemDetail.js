@@ -3,10 +3,11 @@ import React from 'react'
 //Component
 import ItemDetailContainer from '../../components/Main/ItemDetailContainer.js';
 
-const ItemDetail = () => {
+const ItemDetail = ({match}) => {
+
     return (
         <main>
-            <ItemDetailContainer/>
+            <ItemDetailContainer myId={match.params.id}/>
         </main>
     )
 }
