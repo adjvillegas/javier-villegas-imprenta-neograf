@@ -17,13 +17,27 @@
 }
 
 .item-detail-card .item-detail-card-top {
-        display: flex;
+        /* display: flex; */
         justify-content: center;
         align-self: center;
-        border-bottom: 1px solid black;
 }
 
 .item-detail-card .item-detail-card-bottom {
         justify-content: center;
-        border-bottom: 1px solid white;
+        border-top: 1px solid black;
+}
+
+.item-detail-cantidad-desde {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;        
+}
+
+.p-values-cantidad {
+        font-size: 1.5rem;
+}
+
+.p-values-total {
+        font-size: 2rem;
 }

@@ -1,46 +1,58 @@
 import React, { useState, useEffect } from 'react'
 
 //Components
-import ItemList from '../ItemsProducts/ItemList'
+// import ItemList from '../ItemsList/ItemList'
+import NavList from '../NavList/NavList'
 
 const ItemListContainer = (props) => {
 
-    const [products, setProducts] = useState([])
+    const [routing, setRouting] = useState([])
 
     useEffect(() => {
-        fetch('https://run.mocky.io/v3/1728e637-dbe7-4771-aeae-c2dcf19c2d5a')
-            .then(response => response.json())
-            .then((json) => {
+        fetch('https://run.mocky.io/v3/ebbe241f-926e-4a86-b2de-22fe79eb5762')
+        .then(response => response.json())
+        .then(success => {
+            setRouting(success)
+        })
+    },[])
 
-                    let oObject = []
-                    let oPush = []
-                    let check
+    // useEffect(() => {
+    //     fetch('https://run.mocky.io/v3/1728e637-dbe7-4771-aeae-c2dcf19c2d5a')
+    //         .then(response => response.json())
+    //         .then((json) => {
 
-                    for (let index = 0; index < json.length; index++) {
+    //                 let oObject = []
+    //                 let oPush = []
+    //                 let check
 
-                        oObject.push(json[index])
+    //                 for (let index = 0; index < json.length; index++) {
 
-                        check = index + 1
+    //                     oObject.push(json[index])
 
-                        if (check % 4 === 0) {
-                            oPush.push(oObject)
-                            oObject = []
-                        } else if (check === json.length) {
-                            oPush.push(oObject)
-                        }
-                    }
+    //                     check = index + 1
 
-                    setProducts(oPush)
-                }
+    //                     if (check % 4 === 0) {
+    //                         oPush.push(oObject)
+    //                         oObject = []
+    //                     } else if (check === json.length) {
+    //                         oPush.push(oObject)
+    //                     }
+    //                 }
 
-            )
-    })
+    //                 setProducts(oPush)
+    //             }
+
+    //         )
+    // })
 
     return ( 
     <main className = "container-fluid">
-        <section className = "row">
+        <section className = "row row-cols-2">
+            <aside className="col col-md-2">
+                <NavList routing={routing.categorias}/>
+            </aside>
             <article className = "col col-md-12" >
-                {products.map((groupProducts, ind) => {
+                {/* {products.map((groupProducts, ind) => {
                     
                     return (
                         <div key={ind} className = "card-group mt-4">
@@ -55,7 +67,7 @@ const ItemListContainer = (props) => {
                         </div> 
                         </div> 
                     )
-                })}
+                })} */}
             </article> 
         </section> 
     </main>

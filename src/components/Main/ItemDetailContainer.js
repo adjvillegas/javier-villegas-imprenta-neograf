@@ -4,9 +4,6 @@ import React, {useState, useEffect} from 'react'
 import ItemDetailTitles from '../ItemDetails/ItemDetailTitle'
 import ItemDetailBody from '../ItemDetails/ItemDetailBody'
 
-//Styles
-import './ItemDetailContainer.css'
-
 const ItemDetailContainer = ({myId}) => {
 
     const [detail, setDetail] = useState([])

@@ -1,5 +1,8 @@
 import React from 'react'
 
+//Styles
+import './ItemDetailTitle.css'
+
 const ItemDetailTitle = () => {
     return (
         <div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // get our fontawesome imports
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
@@ -6,21 +6,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ItemCount = ({stock}) => {
 
-    const [cantidad, setCantidad] = useState(0)
-    const [classButtonAdd, setclassButtonAdd] = useState("btn btn-outline-success")  
-    const [classButtonRemove, setclassButtonRemove] = useState("btn btn-outline-danger disabled")    
+    const [cantidad, setCantidad] = useState(1)
+    const [classButtonAdd, setclassButtonAdd] = useState("col-3 btn btn-outline-success")  
+    const [classButtonRemove, setclassButtonRemove] = useState("col-3 btn btn-outline-danger disabled")
+    
+    useEffect(() => {
+        if (cantidad > 1) {
+           
+            let valuePriceUnidad = document.getElementById("pPrice").innerText.slice(2) 
+            let priceUnidad = parseInt(valuePriceUnidad)
+            let priceSubtotal = priceUnidad * cantidad
+
+            document.getElementById("divSubTotal").classList.remove("d-none")
+            
+            document.getElementById("pSubTotal").innerText = `$ ${priceSubtotal.toFixed(2)}`
+
+        } else {
+            document.getElementById("divSubTotal").classList.add("d-none")
+        }
+    },[cantidad])
 
     const onAdd = () => {
 
         if (cantidad < stock) {
          
             setCantidad(cantidad + 1)
-            setclassButtonAdd("btn btn-outline-success")
-            setclassButtonRemove("btn btn-outline-danger")
+            setclassButtonAdd("col-3 btn btn-outline-success")
+            setclassButtonRemove("col-3 btn btn-outline-danger")
         
         } else {
 
-            setclassButtonAdd("btn btn-outline-success disabled")
+            setclassButtonAdd("col-3 btn btn-outline-success disabled")
         
         }
 
@@ -28,24 +44,25 @@ const ItemCount = ({stock}) => {
 
     const onRemove = () => {
       
-        if (cantidad > 0) {
+        if (cantidad > 1) {
 
         setCantidad(cantidad - 1)
-        setclassButtonRemove("btn btn-outline-danger")
-        setclassButtonAdd("btn btn-outline-success")
+        setclassButtonRemove("col-3 btn btn-outline-danger")
+        setclassButtonAdd("col-3 btn btn-outline-success")
 
         } else {
 
-            setclassButtonRemove("btn btn-outline-danger disabled")
+            setclassButtonRemove("col-3 btn btn-outline-danger disabled")
         
         }
 
     }
 
     return (
-        <div className = "input-group input-group-sm">
+        <div className = "col input-group input-group-sm">
             <button type="button" className = {classButtonRemove} id="btnGroupRemove" onClick={onRemove}><FontAwesomeIcon icon={faMinus} /></button>
-            <input type="text" className = "form-control text-center" aria-describedby="btnGroupAddon" value={cantidad}/>
+            {/* <p className="col-6 input-count">{cantidad}</p> */}
+            <input id="inputItemCount" type="text" className = "col form-control text-center" aria-describedby="btnGroupAddon" value={cantidad}/>
             <button type="button" className = {classButtonAdd} id="btnGroupAddon" onClick={onAdd}><FontAwesomeIcon icon={faPlus} /></button>
         </div>
     )
