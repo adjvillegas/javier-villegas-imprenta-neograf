@@ -23,7 +23,7 @@ const ItemDetailContainer = ({myId}) => {
     return (
         <div className="container-fluid">
             <ItemDetailTitles/>
-            <ItemDetailBody />
+            <ItemDetailBody detail={detail}/>
         </div>
     )
 }

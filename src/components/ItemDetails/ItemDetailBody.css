@@ -1,6 +1,29 @@
 
 .item-detail-card {
-        height: 50vh;
-        margin-top: 20px;        
-        border: 1px solid black;
+        height: 60vh;
+        margin-top: 20px;
+        display: flex;        
+}
+
+.item-detail-img {
+
+       justify-content: center;
+       align-items: center; 
+}
+
+.item-detail-img img {
+        height: 80%;
+        width: 80%;
+}
+
+.item-detail-card .item-detail-card-top {
+        display: flex;
+        justify-content: center;
+        align-self: center;
+        border-bottom: 1px solid black;
+}
+
+.item-detail-card .item-detail-card-bottom {
+        justify-content: center;
+        border-bottom: 1px solid white;
 }

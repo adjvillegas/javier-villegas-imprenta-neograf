@@ -4,7 +4,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 // Component
-import CartWidget from './CartWidget'
+import CartWidget from '../CartWidget/CartWidget'
 
 // Styles
 import './NavBar.css'
