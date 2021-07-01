@@ -10,7 +10,7 @@ const ItemDetailContainer = ({myId}) => {
 
     useEffect(() => {
 
-        fetch('https://run.mocky.io/v3/1728e637-dbe7-4771-aeae-c2dcf19c2d5a').then(response => response.json())
+        fetch("https://run.mocky.io/v3/1728e637-dbe7-4771-aeae-c2dcf19c2d5a").then(response => response.json())
         .then((json) => {
             setDetail(json.find( oObject => oObject.id === parseInt(myId)))
         })

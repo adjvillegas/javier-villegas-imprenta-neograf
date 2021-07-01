@@ -1,3 +1,4 @@
+// import React, { useState } from 'react'
 import React from 'react'
 
 // get our fontawesome imports
@@ -7,23 +8,26 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //LINK ROUTER DOM
 import { Link } from 'react-router-dom';
 
-const Item = (props) => {
+    const Item = ({ product }) => {
 
-    return (
-            <div className="card h-100">
-                <img src={process.env.PUBLIC_URL + '/img/' + props.product.archive} alt={props.product.archive} className="card-img-top"/>
-                <div className="card-body">
-                    <h5>{props.product.descripcion}</h5>    
-                    <p>{props.product.nota}</p>
-                </div>
-                <div className="card-footer d-flex justify-content-end">
-                    <Link to={`/detail/${props.product.id}`}>
-                        <FontAwesomeIcon icon={faGlasses}/>
-                    </Link>    
-                </div>                
-            </div>
-            
-    )
+                        return (
+                        <div key={product.id} className="card">
+                            <img 
+                                src={process.env.PUBLIC_URL + '/img/' + product.archive} 
+                                alt={product.archive} 
+                                className="card-img-top" />
+                            <div className="card-body">
+                                <h5>{product.descripcion}</h5>
+                                <p>{product.nota}</p>
+                            </div>
+                            <div className="card-footer d-flex justify-content-end">
+                                <Link to={`/detail/${product.id}`}>
+                                    <FontAwesomeIcon icon={faGlasses} />
+                                </Link>
+                            </div>
+                        </div>
+                        )
+
 }
 
 export default Item
