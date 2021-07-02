@@ -10,3 +10,7 @@
     margin-bottom: 0;
     margin-left: 2%;
 }
+
+.navStyle {
+    --bs-breadcrumb-divider: '>';
+}

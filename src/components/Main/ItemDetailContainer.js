@@ -6,11 +6,11 @@ import ItemDetailBody from '../ItemDetails/ItemDetailBody'
 
 const ItemDetailContainer = ({ myId }) => {
 
-    const [detail, setDetail] = useState([])
+    const [detail, setDetail] = useState([]) 
 
     useEffect(() => {
-
-        fetch("https://run.mocky.io/v3/1728e637-dbe7-4771-aeae-c2dcf19c2d5a").then(response => response.json())
+        fetch("https://run.mocky.io/v3/35a72200-b526-462b-8510-91cf015fb17f")
+            .then(response => response.json())
             .then((json) => {
                 if (myId !== undefined) {
                     setDetail(json.find(oObject => oObject.id === parseInt(myId)))
@@ -21,8 +21,8 @@ const ItemDetailContainer = ({ myId }) => {
 
     return (
         <div className="container-fluid">
-            <ItemDetailTitles />
-            <ItemDetailBody detail={detail} />
+                <ItemDetailTitles detail={detail}/>
+                <ItemDetailBody detail={detail} />
         </div>
     )
 }

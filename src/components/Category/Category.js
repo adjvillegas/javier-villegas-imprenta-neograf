@@ -8,7 +8,7 @@ const Category = () => {
     const [categoryList, setCategoryList] = useState([])
 
     useEffect(() => {
-        fetch("https://run.mocky.io/v3/85ee2c28-e251-437e-83dd-0099dc600e3b")
+        fetch("https://run.mocky.io/v3/82bb93f2-8e9e-44da-bf44-c89f3a0799f9")
             .then(response => response.json())
             .then(success => {
                 setCategoryList(success)
@@ -20,7 +20,11 @@ const Category = () => {
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 {categoryList.map(category => {
                     return (
-                        <li key={category.id}><Link to={`/category/${category.id}`} className="dropdown-item">{category.descripcion}</Link></li>
+                        <li key={category.id}>
+                            <Link to={`/category/${category.id}`} className="dropdown-item">
+                                {category.descripcion}
+                            </Link>
+                        </li>
                     )
 
                 })}
