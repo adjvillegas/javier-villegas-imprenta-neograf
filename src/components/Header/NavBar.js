@@ -4,6 +4,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 // Component
+import Category from '../Category/Category'
 import CartWidget from '../CartWidget/CartWidget'
 
 // Styles
@@ -28,6 +29,12 @@ const navBar = () => {
                         <ul className="navbar-nav">
                             <li className="navbar-item"><Link to="/home" className="nav-link">Inicio</Link></li>
                             <li className="navbar-item"><Link to="/" className="nav-link">Productos</Link></li>
+                            <li className="nav-item dropdown">
+                                <span className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Categorias
+                                </span>
+                                <Category/>
+                            </li>
                             <li className="navbar-item"><Link to="/contact" className="nav-link">Contactanos</Link></li>
                         </ul>
                     </div>

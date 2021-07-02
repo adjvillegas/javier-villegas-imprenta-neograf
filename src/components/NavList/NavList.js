@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
-import NavLink from './NavLink.js'
+
 
 const NavList = () => {
 
@@ -26,7 +26,7 @@ const NavList = () => {
                         myClass = 'list-group-item list-group-item-action'
                     }
                     return (
-                        <NavLink key={keyID} myClass={myClass} myId={linking.id} descripcion={linking.descripcion}/>
+                    //     <NavLink key={keyID} myClass={myClass} myId={linking.id} descripcion={linking.descripcion}/>
                     )
                 })
             }
