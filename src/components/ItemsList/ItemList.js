@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 //Component
 import Item from './Item'
 
-const ItemList = ({router, routerDescription}) => {
+const ItemList = ({router}) => {
     
     const [products, setProducts] = useState([])
     const [category, setCategory] = useState([])
@@ -17,12 +17,12 @@ const ItemList = ({router, routerDescription}) => {
                 if (router > 0) {
                     setProducts(json.filter(oObject => oObject.categoria === parseInt(router))) 
                     
-                    // fetch("https://run.mocky.io/v3/82bb93f2-8e9e-44da-bf44-c89f3a0799f9")
-                    // .then(response => response.json())
-                    // .then(success => {
-                    //     let oObject = success.filter(oObject => oObject.id === parseInt(router))
-                    //     setCategory(oObject[0]) 
-                    // })
+                    fetch("https://run.mocky.io/v3/82bb93f2-8e9e-44da-bf44-c89f3a0799f9")
+                    .then(response => response.json())
+                    .then(success => {
+                        let oObject = success.filter(oObject => oObject.id === parseInt(router))
+                        setCategory(oObject[0]) 
+                    })
 
                 } else {
 
