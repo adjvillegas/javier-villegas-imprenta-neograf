@@ -21,7 +21,7 @@ const Featured = () => {
                     </p>
                 </div>
                 <div className="d-flex justify-content-center mt-1">
-                    <Link to="/product">
+                    <Link to="/">
                         <button type="button" className="btn btn-success btn-sm"><FontAwesomeIcon icon={faShoppingCart}/> Ingresar a la Tienda</button>
                     </Link>
                 </div>
