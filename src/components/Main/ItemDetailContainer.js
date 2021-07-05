@@ -9,7 +9,7 @@ const ItemDetailContainer = ({ myId }) => {
     const [detail, setDetail] = useState([]) 
 
     useEffect(() => {
-        fetch("https://run.mocky.io/v3/35a72200-b526-462b-8510-91cf015fb17f")
+        fetch(process.env.REACT_APP_CATALOGO_URL)
             .then(response => response.json())
             .then((json) => {
 

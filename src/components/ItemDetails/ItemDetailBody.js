@@ -1,12 +1,31 @@
 import React from 'react'
+// import React, { useContext } from 'react'
 
 //Component
 import ItemCount from './ItemCount'
-import CartButton from '../CartButton/CartButton'
+// import CartButton from '../CartButton/CartButton'
 //Styles
 import './ItemDetailBody.css'
 
+//Provider
+// import { CartContext } from '../../providers/Cart/CartContext'
+
 const ItemDetailBody = ({detail}) => {
+    // debugger
+    // const [carts, setCarts] = useContext(CartContext)
+    
+    const changeItemCount = () => {
+
+        let varCount = document.getElementById("spanCartWidget").innerText
+        let myCount = parseInt(varCount) + 1
+
+        document.getElementById("inputItemCount").value = "1"
+        document.getElementById("divSubTotal").classList.add("d-none")
+        
+        document.getElementById("spanCartWidget").innerText = myCount
+        document.getElementById("spanCartWidget").classList.remove("visually-hidden")
+    }
+
     return (
         <div className="container">
         <div className="row gx-5 item-detail-body">
@@ -36,7 +55,10 @@ const ItemDetailBody = ({detail}) => {
                             <p className="text-initial my-0" id="pSubTotal">$ {detail.precioDesde}</p>
                         </div>
                     </div>
-                    <CartButton/>
+                    <div className="row row-cols-1 justify-content-center gy-1">
+                        <button className="col-4 btn btn-danger"type="button" onClick={changeItemCount}>COMPRAR</button>
+                    </div>                    
+                    {/* <CartButton/> */}
                 </div>
             </div>
         </div>
