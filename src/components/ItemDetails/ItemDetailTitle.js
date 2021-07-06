@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 //Styles
 import './ItemDetailTitle.css'
 
-const ItemDetailTitle = ({idCategory, nameProduct}) => {
+const ItemDetailTitle = ({ nameProduct }) => {
 
     return (
             <div>

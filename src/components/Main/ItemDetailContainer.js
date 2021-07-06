@@ -21,7 +21,7 @@ const ItemDetailContainer = ({ myId }) => {
 
     return (
         <div className="container-fluid">
-                <ItemDetailTitles idCategory={detail.category} nameProduct={detail.descripcion}/>
+                <ItemDetailTitles nameProduct={detail.descripcion}/>
                 <ItemDetailBody detail={detail} />
         </div>
     )

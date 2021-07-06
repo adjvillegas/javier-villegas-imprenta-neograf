@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ItemCount = ({stock}) => {
+const ItemCount = ({stock = 1}) => {
 
     const [cantidad, setCantidad] = useState(1)
     const [classButtonAdd, setclassButtonAdd] = useState("col-3 btn btn-outline-success")  
@@ -67,5 +67,6 @@ const ItemCount = ({stock}) => {
         </div>
     )
 }
+
 
 export default ItemCount
