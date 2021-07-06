@@ -10,14 +10,14 @@ const ItemList = ({router}) => {
 
     useEffect(() => {
         
-        fetch("https://run.mocky.io/v3/35a72200-b526-462b-8510-91cf015fb17f")
+        fetch(process.env.REACT_APP_CATALOGO_URL)
             .then(response => response.json())
             .then((json) => {
                 
                 if (router > 0) {
                     setProducts(json.filter(oObject => oObject.categoria === parseInt(router))) 
                     
-                    fetch("https://run.mocky.io/v3/82bb93f2-8e9e-44da-bf44-c89f3a0799f9")
+                    fetch(process.env.REACT_APP_CATEGORIA_URL)
                     .then(response => response.json())
                     .then(success => {
                         let oObject = success.filter(oObject => oObject.id === parseInt(router))

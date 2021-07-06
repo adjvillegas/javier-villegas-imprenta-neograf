@@ -1,12 +1,21 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 
 // get our fontawesome imports
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+<<<<<<< HEAD
 const ItemCount = ({stock = 1}) => {
+=======
+//Provider
+import { CartContext } from '../../providers/Cart/CartContext'
+>>>>>>> ee40f1aa84f9b9dacb0498ace2ca04ab4cd8d774
 
-    const [cantidad, setCantidad] = useState(1)
+const ItemCount = ({stock}) => {
+    
+    // const [stock, setStock] = useState(carts)
+    const cartsContext = useContext(CartContext)
+    const [cantidad, setCantidad] = useState(cartsContext.carts.cacheQuantity)
     const [classButtonAdd, setclassButtonAdd] = useState("col-3 btn btn-outline-success")  
     const [classButtonRemove, setclassButtonRemove] = useState("col-3 btn btn-outline-danger disabled")
     
@@ -30,7 +39,7 @@ const ItemCount = ({stock = 1}) => {
 
         if (cantidad < stock) {
          
-            setCantidad(cantidad + 1)
+            setCantidad(cartsContext.addCacheQuantity)
             setclassButtonAdd("col-3 btn btn-outline-success")
             setclassButtonRemove("col-3 btn btn-outline-danger")
         
@@ -46,7 +55,7 @@ const ItemCount = ({stock = 1}) => {
       
         if (cantidad > 1) {
 
-        setCantidad(cantidad - 1)
+        setCantidad(cartsContext.removeCacheQuantity)
         setclassButtonRemove("col-3 btn btn-outline-danger")
         setclassButtonAdd("col-3 btn btn-outline-success")
 
