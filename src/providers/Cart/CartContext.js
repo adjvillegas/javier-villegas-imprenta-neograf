@@ -18,7 +18,7 @@ export const CartProvider = ({defaultValue = cartInitialState, children}) => {
 
     const addCacheQuantity = () => {
         let cacheCarts = carts
-
+        debugger
         cacheCarts.cacheQuantity = cacheCarts.cacheQuantity + 1 
 
         setCarts(cacheCarts)
