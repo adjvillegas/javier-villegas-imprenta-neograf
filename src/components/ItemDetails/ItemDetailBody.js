@@ -1,5 +1,5 @@
-import React from 'react'
-// import React, { useContext } from 'react'
+// import React from 'react'
+import React, { useContext, useState } from 'react'
 
 //Component
 import ItemCount from './ItemCount'
@@ -8,23 +8,28 @@ import ItemCount from './ItemCount'
 import './ItemDetailBody.css'
 
 //Provider
-// import { CartContext } from '../../providers/Cart/CartContext'
+import { useCartContext } from '../../providers/Cart/CartContext'
 
 const ItemDetailBody = ({detail}) => {
     // debugger
-    // const [carts, setCarts] = useContext(CartContext)
+    const { addItem } = useCartContext()
+    const [onQuantity, setQuantity] = useState(detail.stock ? 1 : 1) 
     
-    const changeItemCount = () => {
+    const onAddQuantity = () => setQuantity(onQuantity === detail.stock ? onQuantity : onQuantity + 1)
+    const onRemoveQuantity = () => setQuantity(onQuantity -1 ? onQuantity - 1 : onQuantity)
+    
+    const changeItemCount = () => addItem(detail, onQuantity)
+  
+        // const changeItemCount = () => {
+        // let varCount = document.getElementById("spanCartWidget").innerText
+        // let myCount = parseInt(varCount) + 1
 
-        let varCount = document.getElementById("spanCartWidget").innerText
-        let myCount = parseInt(varCount) + 1
-
-        document.getElementById("inputItemCount").value = "1"
-        document.getElementById("divSubTotal").classList.add("d-none")
+        // document.getElementById("inputItemCount").value = "1"
+        // document.getElementById("divSubTotal").classList.add("d-none")
         
-        document.getElementById("spanCartWidget").innerText = myCount
-        document.getElementById("spanCartWidget").classList.remove("visually-hidden")
-    }
+        // document.getElementById("spanCartWidget").innerText = myCount
+        // document.getElementById("spanCartWidget").classList.remove("visually-hidden")
+    // }
 
     return (
         <div className="container">
@@ -41,7 +46,7 @@ const ItemDetailBody = ({detail}) => {
                         <p className="col gy-2">{detail.nota}</p>
                             <div className="container gy-4">
                                 <div className="row">
-                                    <ItemCount stock={detail.stock}/>
+                                    <ItemCount cantidad={onQuantity} onAdd={onAddQuantity} onRemove={onRemoveQuantity}/>
                                     <div className="col item-detail-cantidad-desde"> 
                                         <p className="p-values-cantidad"> x {detail.cantidadDesde} {detail.medicionDesde}</p>
                                     </div>
@@ -56,6 +61,7 @@ const ItemDetailBody = ({detail}) => {
                         </div>
                     </div>
                     <div className="row row-cols-1 justify-content-center gy-1">
+                        {/* <button className="col-4 btn btn-danger"type="button" onClick={addItem(detail.id, onQuantity )}>COMPRAR</button> */}
                         <button className="col-4 btn btn-danger"type="button" onClick={changeItemCount}>COMPRAR</button>
                     </div>                    
                     {/* <CartButton/> */}
