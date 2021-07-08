@@ -1,69 +1,29 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 // get our fontawesome imports
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const ItemCount = ({stock}) => {
-
-    const [cantidad, setCantidad] = useState(1)
-    const [classButtonAdd, setclassButtonAdd] = useState("col-3 btn btn-outline-success")  
-    const [classButtonRemove, setclassButtonRemove] = useState("col-3 btn btn-outline-danger disabled")
-    
-    useEffect(() => {
-        if (cantidad > 1) {
-           
-            let valuePriceUnidad = document.getElementById("pPrice").innerText.slice(2) 
-            let priceUnidad = parseInt(valuePriceUnidad)
-            let priceSubtotal = priceUnidad * cantidad
-
-            document.getElementById("divSubTotal").classList.remove("d-none")
-            
-            document.getElementById("pSubTotal").innerText = `$ ${priceSubtotal.toFixed(2)}`
-
-        } else {
-            document.getElementById("divSubTotal").classList.add("d-none")
-        }
-    },[cantidad])
-
-    const onAdd = () => {
-
-        if (cantidad < stock) {
-         
-            setCantidad(cantidad + 1)
-            setclassButtonAdd("col-3 btn btn-outline-success")
-            setclassButtonRemove("col-3 btn btn-outline-danger")
+const ItemCount = ({stock, cantidad, onAdd, onRemove}) => {
         
-        } else {
-
-            setclassButtonAdd("col-3 btn btn-outline-success disabled")
-        
-        }
-
-    }
-
-    const onRemove = () => {
-      
-        if (cantidad > 1) {
-
-        setCantidad(cantidad - 1)
-        setclassButtonRemove("col-3 btn btn-outline-danger")
-        setclassButtonAdd("col-3 btn btn-outline-success")
-
-        } else {
-
-            setclassButtonRemove("col-3 btn btn-outline-danger disabled")
-        
-        }
-
-    }
-
     return (
         <div className = "col input-group input-group-sm">
-            <button type="button" className = {classButtonRemove} id="btnGroupRemove" onClick={onRemove}><FontAwesomeIcon icon={faMinus} /></button>
-            {/* <p className="col-6 input-count">{cantidad}</p> */}
+            <button type="button" 
+                    id="btnGroupRemove" 
+                    onClick={onRemove}
+                    className = {(cantidad < 2) ? "col-3 btn btn-outline-danger disabled": "col-3 btn btn-outline-danger "}
+                    >
+                <FontAwesomeIcon icon={faMinus} />
+            </button>
+
             <input id="inputItemCount" type="text" className = "col form-control text-center" aria-describedby="btnGroupAddon" value={cantidad}/>
-            <button type="button" className = {classButtonAdd} id="btnGroupAddon" onClick={onAdd}><FontAwesomeIcon icon={faPlus} /></button>
+            
+            <button type="button" 
+                    id="btnGroupAddon" 
+                    onClick={onAdd}
+                    className = { (cantidad < stock) ? "col-3 btn btn-outline-success" : "col-3 btn btn-outline-success disabled"} >
+                <FontAwesomeIcon icon={faPlus} />
+            </button>
         </div>
     )
 }

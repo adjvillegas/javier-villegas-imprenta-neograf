@@ -10,14 +10,18 @@ const ItemList = ({router}) => {
 
     useEffect(() => {
         
+<<<<<<< HEAD
         fetch("https://run.mocky.io/v3/d438ae3f-c2b1-43ed-af56-be70e5c75f19")
+=======
+        fetch(process.env.REACT_APP_CATALOGO_URL)
+>>>>>>> Desafío_CartContext
             .then(response => response.json())
             .then((json) => {
                 
                 if (router > 0) {
                     setProducts(json.filter(oObject => oObject.categoria === parseInt(router))) 
                     
-                    fetch("https://run.mocky.io/v3/82bb93f2-8e9e-44da-bf44-c89f3a0799f9")
+                    fetch(process.env.REACT_APP_CATEGORIA_URL)
                     .then(response => response.json())
                     .then(success => {
                         let oObject = success.filter(oObject => oObject.id === parseInt(router))
