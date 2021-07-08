@@ -20,34 +20,6 @@ const ItemDetailBody = ({detail}) => {
     
     const changeItemCount = () => addItem(detail, onQuantity)
 
-    // useEffect(() => {
-    //     if (cantidad > 1) {
-           
-    //         let valuePriceUnidad = document.getElementById("pPrice").innerText.slice(2) 
-    //         let priceUnidad = parseInt(valuePriceUnidad)
-    //         let priceSubtotal = priceUnidad * cantidad
-
-    //         document.getElementById("divSubTotal").classList.remove("d-none")
-            
-    //         document.getElementById("pSubTotal").innerText = `$ ${priceSubtotal.toFixed(2)}`
-
-    //     } else {
-    //         document.getElementById("divSubTotal").classList.add("d-none")
-    //     }
-    // },[cantidad])
-
-
-        // const changeItemCount = () => {
-        // let varCount = document.getElementById("spanCartWidget").innerText
-        // let myCount = parseInt(varCount) + 1
-
-        // document.getElementById("inputItemCount").value = "1"
-        // document.getElementById("divSubTotal").classList.add("d-none")
-        
-        // document.getElementById("spanCartWidget").innerText = myCount
-        // document.getElementById("spanCartWidget").classList.remove("visually-hidden")
-    // }
-
     return (
         <div className="container">
         <div className="row gx-5 item-detail-body">

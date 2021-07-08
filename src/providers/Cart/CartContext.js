@@ -13,14 +13,12 @@ export const CartProvider = ({children}) => {
     const isInCart = (itemId) => carts.some( cart => cart.id === itemId )
 
     const addItem = (Item, quantity) => {
-
-        if (Item.id && !isInCart(Item.id)) {
+        debugger
+        if (!isInCart(Item.id)) {
 
         setCarts(prev => [...prev, {...Item, quantity} ])
 
     } else {
-
-        if (Item.id) {
 
             const newCarts = carts.map( newCart => {
                 if (newCart.id === Item.id) {
@@ -29,7 +27,7 @@ export const CartProvider = ({children}) => {
             })
             
             setCarts(newCarts)
-        }
+    
     }
     }
 
