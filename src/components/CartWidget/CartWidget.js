@@ -17,7 +17,7 @@ function CartWidget() {
     return (
             <li className="navbar-item">
                 <div className="position-relative">
-                    <Link to="/shop">
+                    <Link to="/cart">
                         <FontAwesomeIcon icon={faShoppingCart} size="2x" color="#c43bfc"/>
                     </Link>
                     <span 
