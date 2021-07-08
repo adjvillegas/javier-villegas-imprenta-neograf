@@ -10,7 +10,7 @@ const ItemList = ({router}) => {
 
     useEffect(() => {
         
-        fetch("https://run.mocky.io/v3/35a72200-b526-462b-8510-91cf015fb17f")
+        fetch("https://run.mocky.io/v3/d438ae3f-c2b1-43ed-af56-be70e5c75f19")
             .then(response => response.json())
             .then((json) => {
                 
