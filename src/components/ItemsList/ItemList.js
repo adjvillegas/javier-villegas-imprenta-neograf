@@ -10,11 +10,7 @@ const ItemList = ({router}) => {
 
     useEffect(() => {
         
-<<<<<<< HEAD
-        fetch("https://run.mocky.io/v3/d438ae3f-c2b1-43ed-af56-be70e5c75f19")
-=======
         fetch(process.env.REACT_APP_CATALOGO_URL)
->>>>>>> Desafío_CartContext
             .then(response => response.json())
             .then((json) => {
                 
