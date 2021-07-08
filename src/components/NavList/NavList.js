@@ -7,7 +7,7 @@ const NavList = () => {
     const [category, setCategory] = useState([])
 
     useEffect(() => {
-        fetch("https://run.mocky.io/v3/85ee2c28-e251-437e-83dd-0099dc600e3b")
+        fetch(process.env.REACT_APP_CATEGORIA_URL)
         .then(response => response.json())
         .then(success => {
             setCategory(success)

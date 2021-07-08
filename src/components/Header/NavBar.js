@@ -4,7 +4,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 // Component
-import Category from '../Category/Category'
+// import Category from '../Category/Category'
 import CartWidget from '../CartWidget/CartWidget'
 
 // Styles
@@ -33,7 +33,7 @@ const navBar = () => {
                                 <span className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Categorias
                                 </span>
-                                <Category/>
+                                {/* <Category/> */}
                             </li>
                             <li className="navbar-item"><Link to="/contact" className="nav-link">Contactanos</Link></li>
                         </ul>

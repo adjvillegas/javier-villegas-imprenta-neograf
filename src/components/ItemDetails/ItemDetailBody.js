@@ -1,5 +1,5 @@
 // import React from 'react'
-import React, { useContext, useState } from 'react'
+import React, {useState } from 'react'
 
 //Component
 import ItemCount from './ItemCount'
@@ -19,7 +19,24 @@ const ItemDetailBody = ({detail}) => {
     const onRemoveQuantity = () => setQuantity(onQuantity -1 ? onQuantity - 1 : onQuantity)
     
     const changeItemCount = () => addItem(detail, onQuantity)
-  
+
+    // useEffect(() => {
+    //     if (cantidad > 1) {
+           
+    //         let valuePriceUnidad = document.getElementById("pPrice").innerText.slice(2) 
+    //         let priceUnidad = parseInt(valuePriceUnidad)
+    //         let priceSubtotal = priceUnidad * cantidad
+
+    //         document.getElementById("divSubTotal").classList.remove("d-none")
+            
+    //         document.getElementById("pSubTotal").innerText = `$ ${priceSubtotal.toFixed(2)}`
+
+    //     } else {
+    //         document.getElementById("divSubTotal").classList.add("d-none")
+    //     }
+    // },[cantidad])
+
+
         // const changeItemCount = () => {
         // let varCount = document.getElementById("spanCartWidget").innerText
         // let myCount = parseInt(varCount) + 1
@@ -46,8 +63,11 @@ const ItemDetailBody = ({detail}) => {
                         <p className="col gy-2">{detail.nota}</p>
                             <div className="container gy-4">
                                 <div className="row">
-                                    <ItemCount cantidad={onQuantity} onAdd={onAddQuantity} onRemove={onRemoveQuantity}/>
-                                    <div className="col item-detail-cantidad-desde"> 
+                                    {
+                                    detail.stock > 0 && 
+                                    <ItemCount stock={detail.stock} cantidad={onQuantity} onAdd={onAddQuantity} onRemove={onRemoveQuantity}/>
+                                    }
+                                <div className="col item-detail-cantidad-desde"> 
                                         <p className="p-values-cantidad"> x {detail.cantidadDesde} {detail.medicionDesde}</p>
                                     </div>
                                 </div>
@@ -55,9 +75,11 @@ const ItemDetailBody = ({detail}) => {
                     </div>
                     <div className="row row-cols-1 item-detail-card-bottom justify-content-center gy-4">
                         <p className="col align-self-end  text-center p-values-total my-0" id="pPrice">$ {detail.precioDesde}</p>
-                        <div className="row row-cols-2 my-0" id="divSubTotal">
+                        <div id="divSubTotal"
+                             className= {( onQuantity > 1 ) ? "row row-cols-2 my-0" : "d-none"} 
+                             >
                             <p className="text-end my-0"> Sub total:</p>
-                            <p className="text-initial my-0" id="pSubTotal">$ {detail.precioDesde}</p>
+                            <p className="text-initial my-0" id="pSubTotal">$ {(parseInt(detail.precioDesde) * onQuantity).toFixed(2)}</p>
                         </div>
                     </div>
                     <div className="row row-cols-1 justify-content-center gy-1">

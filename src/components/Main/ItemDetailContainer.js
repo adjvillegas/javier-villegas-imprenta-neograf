@@ -12,7 +12,7 @@ const ItemDetailContainer = ({ myId }) => {
         fetch(process.env.REACT_APP_CATALOGO_URL)
             .then(response => response.json())
             .then((json) => {
-
+                    debugger
                     setDetail(json.find(oObject => oObject.id === parseInt(myId)))
  
             })
