@@ -8,14 +8,13 @@ const Category = () => {
     const [categoryList, setCategoryList] = useState([])
 
     useEffect(() => {
-        debugger
+     
         fetch(process.env.REACT_APP_CATEGORIA_URL)
             .then(response => response.json())
             .then(success => {
                 setCategoryList(success)
             })
     }, [])
-// }, [categoryList])
 
     return (
  
