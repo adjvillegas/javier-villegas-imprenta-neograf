@@ -9,6 +9,7 @@ import NavBar from '../components/Header/NavBar';
 //View
 import Home from '../views/Home/Home';
 import ItemDetail from '../views/ItemDetail/ItemDetail';
+import Cart from '../views/Cart/Cart';
 import NotFound from '../views/NotFound/NotFound';
 
 //Component -> Agregado por petición de los objetivos de entrega
@@ -26,6 +27,7 @@ const RouterApp = () => {
                 <Route path="/" exact component={ItemListContainer}></Route>
                 <Route path="/category/:id" exact component={ItemListContainer}></Route>
                 <Route path="/detail/:id" exact component={ItemDetail}></Route>
+                <Route path="/cart" exact component={Cart}></Route>
                 <Route to="/" component={NotFound}></Route>
             </Switch>
         </div>

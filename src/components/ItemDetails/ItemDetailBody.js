@@ -11,15 +11,15 @@ import './ItemDetailBody.css'
 import { useCartContext } from '../../providers/Cart/CartContext'
 
 const ItemDetailBody = ({detail}) => {
-    // debugger
-    const { addItem } = useCartContext()
+  
+    const { addItem, isInCart } = useCartContext()
     const [onQuantity, setQuantity] = useState(detail.stock ? 1 : 1) 
     
     const onAddQuantity = () => setQuantity(onQuantity === detail.stock ? onQuantity : onQuantity + 1)
     const onRemoveQuantity = () => setQuantity(onQuantity -1 ? onQuantity - 1 : onQuantity)
     
     const changeItemCount = () => addItem(detail, onQuantity)
-
+   
     return (
         <div className="container">
         <div className="row gx-5 item-detail-body">
@@ -55,10 +55,11 @@ const ItemDetailBody = ({detail}) => {
                         </div>
                     </div>
                     <div className="row row-cols-1 justify-content-center gy-1">
-                        {/* <button className="col-4 btn btn-danger"type="button" onClick={addItem(detail.id, onQuantity )}>COMPRAR</button> */}
-                        <button className="col-4 btn btn-danger"type="button" onClick={changeItemCount}>COMPRAR</button>
+                        {!isInCart(detail.id) ? <button className="col-4 btn btn-danger"type="button" onClick={changeItemCount}>COMPRAR</button> :
+                                    <button className="col-4 btn btn-primary"type="button">Terminar Compra</button>
+                                    }            
                     </div>                    
-                    {/* <CartButton/> */}
+  
                 </div>
             </div>
         </div>

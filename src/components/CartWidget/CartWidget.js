@@ -17,9 +17,10 @@ function CartWidget() {
     return (
             <li className="navbar-item">
                 <div className="position-relative">
+                {(carts.length > 0) &&
                     <Link to="/cart">
                         <FontAwesomeIcon icon={faShoppingCart} size="2x" color="#c43bfc"/>
-                    </Link>
+                    </Link> }
                     <span 
                         id="spanCartWidget"
                         className={(carts.length === 0) ? "visually-hidden" : "position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"}
