@@ -8,12 +8,13 @@ const Category = () => {
     const [categoryList, setCategoryList] = useState([])
 
     useEffect(() => {
-        fetch("https://run.mocky.io/v3/82bb93f2-8e9e-44da-bf44-c89f3a0799f9")
+     
+        fetch(process.env.REACT_APP_CATEGORIA_URL)
             .then(response => response.json())
             .then(success => {
                 setCategoryList(success)
             })
-    }, [categoryList])
+    }, [])
 
     return (
  
