@@ -11,13 +11,23 @@ export const CartProvider = ({children}) => {
     const [carts, setCarts] = useState([])
 
     const isInCart = (itemId) => carts.some( cart => cart.id === itemId )
+    const cartLength = carts.length
 
     const addItem = (Item, quantity) => {
-     
+        
+        let subPrice = 0
+        let importing = 0
+        let totalPrice = 0
+
         if (!isInCart(Item.id)) {
 
-        setCarts(prev => [...prev, {...Item, quantity} ])
+            subPrice = (Item.precioDesde * quantity).toFixed(2)
+            totalPrice = (subPrice * Item.iva).toFixed(2)
+            importing = (totalPrice - subPrice).toFixed(2)
+            
 
+        setCarts(prev => [...prev, {...Item, quantity, subPrice, importing, totalPrice } ])
+    
     } else {
 
             const newCarts = carts.map( newCart => {
@@ -28,11 +38,15 @@ export const CartProvider = ({children}) => {
             
             setCarts(newCarts)
     
-    }
+        }
     }
 
     const removeItem = (itemId) => {
-       
+        let newCart = carts
+        const index = carts.findIndex( cart => cart.id === parseInt(itemId))
+              newCart.splice(index, 1)
+        setCarts(newCart)
+
     }
 
     const clear = () => {
@@ -41,7 +55,7 @@ export const CartProvider = ({children}) => {
 
     return (
 
-        <CartContext.Provider value={{carts, isInCart, addItem, removeItem, clear}}>        
+        <CartContext.Provider value={{carts, isInCart, cartLength, addItem, removeItem, clear}}>        
             {children}
         </CartContext.Provider>
     )
