@@ -1,5 +1,8 @@
 
-import React, { createContext, useContext, useState }  from 'react'
+import React, { createContext, useContext, useEffect, useState }  from 'react'
+
+//Import Firebase
+import {db} from '../../Firebase'
 
 export const CartContext = createContext({});
 
@@ -9,6 +12,8 @@ export const useCartContext = () => useContext(CartContext)
 export const CartProvider = ({children}) => {
     
     const [carts, setCarts] = useState([])
+    const [products, setProducts] = useState([]) 
+    const [categoria, setCategoria] = useState([])        
 
     const isInCart = (itemId) => carts.some( cart => cart.id === itemId )
     const cartLength = carts.length
@@ -53,9 +58,25 @@ export const CartProvider = ({children}) => {
         setCarts([])
     }
 
+    const getData = (collection, setCollection) => {
+        const docs = []
+        db.collection(collection).onSnapshot((querySnapshot) => {
+            querySnapshot.forEach( doc => {
+                docs.push({...doc.data(), id: doc.id })
+            })
+
+            setCollection(docs)
+        })
+    } 
+    
+    useEffect(() => {
+        getData("catalogo", setProducts)
+        getData("categoria", setCategoria)
+    },[])    
+
     return (
 
-        <CartContext.Provider value={{carts, isInCart, cartLength, addItem, removeItem, clear}}>        
+        <CartContext.Provider value={{carts, products, categoria, isInCart, cartLength, addItem, removeItem, clear}}>        
             {children}
         </CartContext.Provider>
     )

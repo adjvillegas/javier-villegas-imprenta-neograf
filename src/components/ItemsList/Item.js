@@ -13,8 +13,8 @@ import { Link } from 'react-router-dom';
                         return (
                         <div key={product.id} className="card">
                             <img 
-                                src={process.env.PUBLIC_URL + '/img/' + product.archive} 
-                                alt={product.archive} 
+                                src={product.archive}  
+                                alt={product.descripcion} 
                                 className="card-img-top" />
                             <div className="card-body">
                                 <h5>{product.descripcion}</h5>
