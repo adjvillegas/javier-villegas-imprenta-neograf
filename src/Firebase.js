@@ -1,5 +1,4 @@
 import firebase from 'firebase/app'
-
 import 'firebase/firestore'
 
 var firebaseConfig = {
@@ -11,6 +10,6 @@ var firebaseConfig = {
     appId: "1:828987191633:web:a2eb5f6032aaebe591e370"
   };
   // Initialize Firebase
-  const fb = firebase.initializeApp(firebaseConfig);
-
-  export const db = fb.firestore()
+  const app = !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
+ 
+  export const productCollections = firebase.firestore(app).collection('catalogo')

@@ -28,10 +28,10 @@ const CartResumen = () => {
                 importing,
                 price
              })
-             debugger
+             
     },[carts])
 
-    debugger
+    
     return (
         <div className="container">
             <div className="row">

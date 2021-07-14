@@ -25,7 +25,7 @@ const ItemDetailBody = ({detail}) => {
         <div className="row gx-5 item-detail-body">
             <div className="col justify-content-center">
                 <div className="item-detail-card item-detail-img">
-                    <img src={process.env.PUBLIC_URL + '/img/' + detail.archive} alt={detail.archive}></img>
+                    <img src={detail.archive} alt={detail.descripcion}></img>
                 </div>
             </div>
             <div className="col">

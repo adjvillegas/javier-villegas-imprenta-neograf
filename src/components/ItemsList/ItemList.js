@@ -6,44 +6,44 @@ import Item from './Item'
 //Provider
 import { useCartContext } from '../../providers/Cart/CartContext'
 
-const ItemList = ({router}) => {
+//Import Firebase
+// import {db} from '../../Firebase'
 
-    const { products } = useCartContext()    
+const ItemList = ({ products }) => {
 
-    // const [productss, setProducts] = useState([])
-    const [category, setCategory] = useState([])
+    // const [ products, setProducts] = useState([])
+    const [ currentCategory, setCurrentCategory] = useState({})      
+    const { category } = useCartContext()
+    
+    // useEffect(() => {
 
-    useEffect(() => {
-           
-        // fetch(process.env.REACT_APP_CATALOGO_URL)
-        //     .then(response => response.json())
-        //     .then((json) => {
-                
-                if (router > 0) {
-                    // setProducts(json.filter(oObject => oObject.categoria === parseInt(router))) 
-                    
-                    fetch(process.env.REACT_APP_CATEGORIA_URL)
-                    .then(response => response.json())
-                    .then(success => {
-                        let oObject = success.filter(oObject => oObject.id === parseInt(router))
-                        setCategory(oObject[0]) 
-                    })
+    //     getProduct()
 
-                // } else {
+    // },[])
 
-                // setProducts(json)
-                // setCategory({"id": 0, "descripcion": "Todos Nuestros Productos"})
-            
-            // }
-            }
+    const getProduct = () => {
 
-            // )
-    }, [router])
+        const docs = []
+     
+        // db.collection('catalogo').onSnapshot((querySnapshot) => {
+        //     querySnapshot.forEach( collect => {
+        //         docs.push({...collect.data(), id: collect.id })
+        //     })
+        //     if (filterId) {
+        //         setProducts(docs.filter( docs => docs.categoria === filterId))
+        //         setCurrentCategory(category.find(element => element.id === filterId))
+        //     } else {
+        //         setCurrentCategory({id: -1, value: 'Todos', descripcion: 'Todos los Productos'})
+        //         setProducts(docs)
+        //     }
+        // })
 
+    } 
+  
     return (
         
         <div className="mt-4">
-            <h2 className="text-center">{category.descripcion}</h2>
+            <h2 className="text-center">{currentCategory.descripcion}</h2>
             <div className="card-group mt-4 justify-content-center">
                 
                 <div className="row row-cols-1 row-cols-md-3 mt-4 justify-content-center g-4">
@@ -61,7 +61,5 @@ const ItemList = ({router}) => {
     )
 
 }
-
-
 
 export default ItemList

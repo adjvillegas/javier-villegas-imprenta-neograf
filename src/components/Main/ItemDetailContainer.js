@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
+//Firebase
+import { productCollections } from '../../Firebase'
+
 //Component
 import ItemDetailTitles from '../ItemDetails/ItemDetailTitle'
 import ItemDetailBody from '../ItemDetails/ItemDetailBody'
@@ -9,13 +12,11 @@ const ItemDetailContainer = ({ myId }) => {
     const [detail, setDetail] = useState([]) 
 
     useEffect(() => {
-        fetch(process.env.REACT_APP_CATALOGO_URL)
-            .then(response => response.json())
-            .then((json) => {
-                
-                    setDetail(json.find(oObject => oObject.id === parseInt(myId)))
- 
-            })
+
+        ( async () => {
+            const response = await productCollections.doc(myId).get()
+            setDetail({ id: response.id, ...response.data()}) 
+        })()
 
     }, [myId])
 
