@@ -46,11 +46,7 @@ export const CartProvider = ({children}) => {
     }
 
     const removeItem = (itemId) => {
-        let newCart = carts
-        const index = carts.findIndex( cart => cart.id === parseInt(itemId))
-              newCart.splice(index, 1)
-        setCarts(newCart)
-
+        setCarts(carts.filter( cart => cart.id !== parseInt(itemId)))
     }
 
     const clear = () => {
