@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import { useParams } from 'react-router-dom'
+
 //Firebase
 import { productCollections } from '../../Firebase'
 
@@ -7,23 +9,37 @@ import { productCollections } from '../../Firebase'
 import ItemDetailTitles from '../ItemDetails/ItemDetailTitle'
 import ItemDetailBody from '../ItemDetails/ItemDetailBody'
 
-const ItemDetailContainer = ({ myId }) => {
 
+    const ItemDetailContainer = () => {    
+     
+    const {id} = useParams()
     const [detail, setDetail] = useState([]) 
+    const [loader, setLoader] = useState(true)
 
     useEffect(() => {
 
         ( async () => {
-            const response = await productCollections.doc(myId).get()
-            setDetail({ id: response.id, ...response.data()}) 
+            const response = await productCollections.doc(id).get()
+            setDetail({ id: response.id, ...response.data()})
+            setLoader(false)
         })()
 
-    }, [myId])
+    }, [id])
+
+    const showComponent = () => {
+        return (
+            <div>
+            <ItemDetailTitles nameProduct={detail.descripcion}/>
+            <ItemDetailBody detail={detail} />
+            </div>            
+        )
+    }
 
     return (
         <div className="container-fluid">
-                <ItemDetailTitles nameProduct={detail.descripcion}/>
-                <ItemDetailBody detail={detail} />
+                
+                {(loader) ?  <h1>Procesando..</h1> : showComponent()}
+                
         </div>
     )
 }

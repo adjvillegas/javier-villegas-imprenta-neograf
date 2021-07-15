@@ -8,12 +8,13 @@ import NavBar from '../components/Header/NavBar';
 
 //View
 import Home from '../views/Home/Home';
-import ItemDetail from '../views/ItemDetail/ItemDetail';
+// import ItemDetail from '../views/ItemDetail/ItemDetail';
 import Cart from '../views/Cart/Cart';
 import NotFound from '../views/NotFound/NotFound';
 
 //Component -> Agregado por petición de los objetivos de entrega
 import ItemListContainer from '../components/Main/ItemListContainer';
+import ItemDetail from  '../components/Main/ItemDetailContainer'
 import { CartProvider } from '../providers/Cart/CartContext';
 
 const RouterApp = () => {
