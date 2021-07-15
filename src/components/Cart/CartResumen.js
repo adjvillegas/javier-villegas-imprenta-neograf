@@ -15,14 +15,18 @@ const CartResumen = () => {
 
         // })
             let subTotal = carts.reduce(
-                (total, value) => total + parseInt(value.subPrice) 
-            )
-            let importing = carts.reduce(
-                (total, value) => total + parseInt(value.importing) 
-            )
-            let price = carts.reduce(
-                (total, value) => total + parseInt(value.totalPrice) 
-            )
+                (acc, item) => {
+                    return acc + item.subPrice
+                    // total + parseInt(value.subPrice)
+                },0)
+            let importing = 2222
+            // carts.reduce(
+            //     (total, value) => total + parseInt(value.importing) 
+            // )
+            let price = 2222
+            // carts.reduce(
+            //     (total, value) => total + parseInt(value.totalPrice) 
+            // )
             setResume({ 
                 subTotal,
                 importing,
