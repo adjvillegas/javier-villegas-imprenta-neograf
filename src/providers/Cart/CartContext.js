@@ -48,7 +48,7 @@ export const CartProvider = ({children}) => {
     }
 
     const removeItem = (itemId) => {
-        debugger
+    
         setCarts(carts.filter( cart => cart.id !== itemId))
 
     }

@@ -4,7 +4,6 @@ import React from 'react'
 import CartTitle from '../Cart/CartTitle'
 import CartHeader from '../Cart/CartHeader'
 import CartDetail from '../Cart/CartDetail'
-import CartFooter from '../Cart/CartFooter.js'
 
 const CartContainer = () => {
 
@@ -13,8 +12,7 @@ const CartContainer = () => {
         <div className="container mt-4">
             <CartTitle/>
             <CartHeader/>
-            <CartDetail/>
-            <CartFooter/>              
+            <CartDetail/>            
         </div>
         </main>
     )

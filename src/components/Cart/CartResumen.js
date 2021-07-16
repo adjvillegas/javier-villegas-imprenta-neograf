@@ -14,13 +14,13 @@ const CartResumen = ({carts}) => {
             <div className="row">
                 <h5>Resumenes Totales</h5>
             </div>
-            <div className="row row-cols-4">
+            <div className="row row-cols-3">
                 <p className="col fw-bold text-end">Precio:</p>
-                <p className="col-8">{resume.subTotal}</p>
+                <p className="col-1 text-end">{resume.subTotal}</p>
             </div>
-            <div className="row row-cols-4">
+            <div className="row row-cols-3">
                 <p className="col fw-bold text-end">Impuestos:</p>
-                <p className="col-8">{resume.importing}</p>  
+                <p className="col-1 text-end">{resume.importing}</p>  
             </div>
             <div className="row row-cols-4 text-end">
                 <p className="col-9 fw-bold text-end">Total a pagar:</p>

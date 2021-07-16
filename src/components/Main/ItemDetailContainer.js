@@ -29,7 +29,7 @@ import ItemDetailBody from '../ItemDetails/ItemDetailBody'
     const showComponent = () => {
         return (
             <div>
-            <ItemDetailTitles nameProduct={detail.descripcion}/>
+            <ItemDetailTitles nameProduct={detail.descripcion} category={detail.categoria}/>
             <ItemDetailBody detail={detail} />
             </div>            
         )

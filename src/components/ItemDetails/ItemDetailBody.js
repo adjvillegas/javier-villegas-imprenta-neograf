@@ -66,7 +66,7 @@ const ItemDetailBody = ({ detail }) => {
                         </div>
                         <div className="row row-cols-1 justify-content-center align-items-center gy-1">
                             {(stock > 0) ? <button className="col-4 btn btn-danger" type="button" onClick={changeItemCount}>COMPRAR</button> :
-                                <Link to="/cart" className="h-link">                                
+                                <Link to="/cart" className="h-link text-center">                                
                                     <button className="btn btn-primary" type="button">Terminar Compra</button>
                                 </Link>
                             }

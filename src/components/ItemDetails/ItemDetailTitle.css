@@ -1,16 +1,7 @@
-.detail-nav {
-    display: flex;
-    height: 40px;
-    align-items: center;
-    border-radius: 5px;    
-    background-color: rgb(196, 59, 252, 0.8);
-}
-
-.detail-nav p {
-    margin-bottom: 0;
-    margin-left: 2%;
-}
-
 .navStyle {
     --bs-breadcrumb-divider: '>';
+}
+
+.navStyle ol li a:link, a:visited, a:active {
+    text-decoration: none;
 }
