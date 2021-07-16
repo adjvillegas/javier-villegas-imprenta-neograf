@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Cartthead from '../CartTable/Cartthead'
 import Carttbody from '../CartTable/Carttbody'     
@@ -13,7 +13,17 @@ import { useCartContext } from '../../providers/Cart/CartContext'
 
 const CartDetail = () => {
 
-    const { carts, removeItem } = useCartContext() 
+    const { carts, removeItem } = useCartContext()
+    const [ enabled, setEnabled ] = useState(true)
+
+    useEffect(() => {
+        if (carts.length === 1) {
+   
+            setEnabled(false)
+        } else {
+            setEnabled(true)
+        }
+    }, [carts.length])
 
     return (
       
@@ -21,7 +31,7 @@ const CartDetail = () => {
         <div className="col-8 table">                
             <table className="table align-middle">
                 <Cartthead/>
-                <Carttbody carts={carts} removeItem={removeItem}/>
+                <Carttbody carts={carts} removeItem={removeItem} show={enabled}/>
             </table>       
         </div> 
         {(carts.length > 0) ? <CartResumen carts={carts}/> :  <h1 className="text-center">No Existen registros</h1>}
