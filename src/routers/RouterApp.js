@@ -9,7 +9,7 @@ import NavBar from '../components/Header/NavBar';
 //View
 import Home from '../views/Home/Home';
 // import ItemDetail from '../views/ItemDetail/ItemDetail';
-import Cart from '../views/Cart/Cart';
+import Cart from '../components/Main/CartContainer';
 import NotFound from '../views/NotFound/NotFound';
 
 //Component -> Agregado por petición de los objetivos de entrega

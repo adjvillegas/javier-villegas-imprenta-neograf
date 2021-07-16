@@ -8,7 +8,16 @@ export const useCartContext = () => useContext(CartContext)
 
 export const CartProvider = ({children}) => {
     
-    const [carts, setCarts] = useState([])         
+    const [carts, setCarts] = useState([]) 
+
+    const getResumen = (oData) => {
+
+        let subTotal = oData.reduce((acc, item) => { return acc + (item.precioDesde * item.quantity) },0).toFixed(2)
+        let price = oData.reduce((acc, item) => { return acc + (item.precioDesde * item.quantity * item.iva) },0).toFixed(2)        
+        let importing = oData.reduce((acc, item) => { return acc + (item.precioDesde * item.quantity * item.iva) - (item.precioDesde * item.quantity) },0).toFixed(2)
+
+        return({ subTotal, importing, price })           
+    }
 
     const isInCart = (itemId) => carts.some( cart => cart.id === itemId )
 
@@ -18,25 +27,18 @@ export const CartProvider = ({children}) => {
     }
 
     const addItem = (Item, quantity) => {
-        
-        let subPrice = 0
-        let importing = 0
-        let totalPrice = 0
 
         if (!isInCart(Item.id)) {
 
-            subPrice = (Item.precioDesde * quantity).toFixed(2)
-            totalPrice = (subPrice * Item.iva).toFixed(2)
-            importing = (totalPrice - subPrice).toFixed(2)
-            
-
-        setCarts(prev => [...prev, {...Item, quantity, subPrice, importing, totalPrice } ])
+        setCarts(prev => [...prev, {...Item, quantity } ])
     
     } else {
 
             const newCarts = carts.map( newCart => {
                 if (newCart.id === Item.id) {
+
                     return {...newCart, quantity: newCart.quantity + quantity}
+
                 } else return newCart
             })
             
@@ -46,7 +48,9 @@ export const CartProvider = ({children}) => {
     }
 
     const removeItem = (itemId) => {
-        setCarts(carts.filter( cart => cart.id !== parseInt(itemId)))
+        debugger
+        setCarts(carts.filter( cart => cart.id !== itemId))
+
     }
 
     const clear = () => {
@@ -61,7 +65,8 @@ export const CartProvider = ({children}) => {
              realStock, 
              addItem, 
              removeItem, 
-             clear}}>        
+             clear,
+             getResumen}}>        
             {children}
         </CartContext.Provider>
     )

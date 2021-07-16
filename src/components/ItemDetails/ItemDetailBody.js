@@ -1,6 +1,9 @@
 // import React from 'react'
 import React, { useState } from 'react'
 
+//LINK ROUTER DOM
+import { Link } from 'react-router-dom';
+
 //Component
 import ItemCount from './ItemCount'
 
@@ -61,9 +64,11 @@ const ItemDetailBody = ({ detail }) => {
                                 <p className="text-initial my-0" id="pSubTotal">$ {(parseInt(detail.precioDesde) * onQuantity).toFixed(2)}</p>
                             </div>
                         </div>
-                        <div className="row row-cols-1 justify-content-center gy-1">
+                        <div className="row row-cols-1 justify-content-center align-items-center gy-1">
                             {(stock > 0) ? <button className="col-4 btn btn-danger" type="button" onClick={changeItemCount}>COMPRAR</button> :
-                                <button className="col-4 btn btn-primary" type="button">Terminar Compra</button>
+                                <Link to="/cart" className="h-link">                                
+                                    <button className="btn btn-primary" type="button">Terminar Compra</button>
+                                </Link>
                             }
                         </div>
 

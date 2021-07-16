@@ -3,20 +3,20 @@ import React from 'react'
 //Component
 import CartTitle from '../Cart/CartTitle'
 import CartHeader from '../Cart/CartHeader'
-import CartBody from '../Cart/CartBody'
-import CartResumen from '../Cart/CartResumen.js'
+import CartDetail from '../Cart/CartDetail'
 import CartFooter from '../Cart/CartFooter.js'
 
 const CartContainer = () => {
 
     return (
+        <main>
         <div className="container mt-4">
             <CartTitle/>
             <CartHeader/>
-            <CartBody/>
-            <CartResumen/>
+            <CartDetail/>
             <CartFooter/>              
         </div>
+        </main>
     )
 }
 

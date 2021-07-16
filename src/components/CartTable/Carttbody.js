@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-//Provider
-import { useCartContext } from '../../providers/Cart/CartContext'
 
-const Carttbody = () => {
+const Carttbody = ({ carts, removeItem }) => {
 
-    const { carts, removeItem } = useCartContext()      
+    const onRemove = (evnt) => {
+        removeItem(evnt.currentTarget.id.slice(7))
+    }
 
     return (
         <tbody>
@@ -25,7 +25,7 @@ const Carttbody = () => {
                     <td>{cart.iva}</td>
                     <td>
                     <Link to="/cart">
-                        <button className="btn btn-danger btn-lg" id={`button_${cart.id}`} onClick={removeItem}>
+                        <button className="btn btn-danger btn-lg" id={`button_${cart.id}`} onClick={onRemove}>
                             <FontAwesomeIcon icon={faTrashAlt} size="1x"/>
                         </button>
                     </Link>                        
