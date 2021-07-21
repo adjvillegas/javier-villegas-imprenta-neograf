@@ -1,12 +1,18 @@
 import React from 'react'
 
-const CartHeader = ({getCurrentDay}) => {
+//Provider
+import { useCartContext } from '../../providers/Cart/CartContext'
 
-    const date = getCurrentDay()
+const CartHeader = () => {
+
+    const { getCurrentDay } = useCartContext()
+    
+    const today = getCurrentDay('/')
+
     return (
         <div className="row row-cols-4">
             <p className="col-2 text-end">Fecha:</p>
-            <p className="col-10">{date}</p>
+            <p className="col-10">{today}</p>
         </div>
     )
 }

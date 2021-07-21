@@ -8,14 +8,18 @@ import NavBar from '../components/Header/NavBar';
 
 //View
 import Home from '../views/Home/Home';
-// import ItemDetail from '../views/ItemDetail/ItemDetail';
+
+//Component
 import Cart from '../components/Main/CartContainer';
 import NotFound from '../views/NotFound/NotFound';
-
-//Component -> Agregado por petición de los objetivos de entrega
+import Order from '../components/Main/OrderContainer.js';
 import ItemListContainer from '../components/Main/ItemListContainer';
-import ItemDetail from  '../components/Main/ItemDetailContainer'
+import OrderForm from '../components/Main/OrderFormContainer.js';
+import ItemDetail from  '../components/Main/ItemDetailContainer';
+
+//Provider
 import { CartProvider } from '../providers/Cart/CartContext';
+
 
 const RouterApp = () => {
     return (
@@ -29,6 +33,8 @@ const RouterApp = () => {
                 <Route path="/category/:id" exact component={ItemListContainer}></Route>
                 <Route path="/detail/:id" exact component={ItemDetail}></Route>
                 <Route path="/cart" exact component={Cart}></Route>
+                <Route path="/orderForm" exact component={OrderForm}></Route>
+                <Router path="order/:id" exact component={Order}></Router>
                 <Route to="/" component={NotFound}></Route>
             </Switch>
         </div>

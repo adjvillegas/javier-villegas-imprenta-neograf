@@ -57,6 +57,21 @@ export const CartProvider = ({children}) => {
         setCarts([])
     }
 
+    const zeroLeft = (n) => {
+        return ("00" + n).slice(-2);
+    }
+
+    const getCurrentDay = (separate = '/') => {
+        const date = new Date()
+        
+        return [ zeroLeft(date.getDate()),
+                 zeroLeft(date.getMonth()+1),
+                 date.getFullYear()        
+        ].join(separate)
+        
+    }
+
+
     return (
 
         <CartContext.Provider value={
@@ -66,7 +81,8 @@ export const CartProvider = ({children}) => {
              addItem, 
              removeItem, 
              clear,
-             getResumen}}>        
+             getResumen,
+             getCurrentDay}}>        
             {children}
         </CartContext.Provider>
     )
