@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useCartContext } from '../../providers/Cart/CartContext'
 
 // db from Firebase
-import { OrderCollections } from '../../Firebase'
+import { productCollections, OrderCollections, batchMode } from '../../Firebase'
 
 //Component
 import OrderForm from '../Order/OrderForm';
@@ -17,7 +17,7 @@ const OrderContainer = () => {
     const [ orderId, setOrderId ] = useState('')    
 
     const addOrder = async (oObject) => {
-      
+        
         let date = getCurrentDay('.')
         let buyer = oObject
         let resume = getResumen(carts)
@@ -33,22 +33,35 @@ const OrderContainer = () => {
 
             return (newArray)
         })
-        
-            await OrderCollections.add(
-            { buyer, 
+        debugger
+        const whereUpdate = productCollections.where("descripcion", "==", items[0].descripcion);
+        debugger
+        const productUpdate = await whereUpdate.get()
+        debugger
+        // .where('id', 'in', carts.map(cart => cart.id))
+        batchMode.add(OrderCollections, { buyer, 
               items, 
               precio: resume.subTotal, 
               impuesto: resume.importing, 
               total: resume.price, 
               date: date 
-            }).then( ({id}) => {
+            });
+        
+            // await OrderCollections.add(
+            // { buyer, 
+            //   items, 
+            //   precio: resume.subTotal, 
+            //   impuesto: resume.importing, 
+            //   total: resume.price, 
+            //   date: date 
+            // }).then( ({id}) => {
                 
-                setOrderId(id)
-                clear()
+            //     setOrderId(id)
+            //     clear()
 
-            }).catch(err => {
+            // }).catch(err => {
             
-            })
+            // })
     }
 
 
