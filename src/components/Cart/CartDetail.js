@@ -12,7 +12,7 @@ import { useCartContext } from '../../providers/Cart/CartContext'
 
 const CartDetail = () => {
 
-    const { carts, removeItem, getResumen, getCurrentDay } = useCartContext()
+    const { carts, removeItem } = useCartContext()
     const [ enabled, setEnabled ] = useState(true)
     
     useEffect(() => {
@@ -36,7 +36,7 @@ const CartDetail = () => {
             </table>       
         </div> 
         {(carts.length > 0) ? <CartResumen carts={carts}/> :  <h1 className="text-center">No Existen registros</h1>}
-                <CartFooter show={carts.length} addOrder={onCreateOrder}/>        
+                <CartFooter show={carts.length}/>        
         </div>
     )
 }

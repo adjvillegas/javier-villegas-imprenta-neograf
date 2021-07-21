@@ -29,7 +29,7 @@ const CartFooter = ({ show }) => {
                     </button>
                 </div>
                 <div className={(show > 0) ? "col-2" : "col-2 d-none"} >
-                    <Link to="/orderForm">                    
+                    <Link to="/order">                    
                         <button type="button" className="col-12  btn btn-outline-success">
                             Comprar
                         </button>
