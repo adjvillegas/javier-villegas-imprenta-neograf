@@ -21,7 +21,7 @@ import { Link } from 'react-router-dom';
                                 <p>{product.nota}</p>
                             </div>
                             <div className="card-footer d-flex justify-content-end">
-                                <Link to={`/detail/${product.id}`}>
+                                <Link to={`/item/${product.id}`}>
                                     <FontAwesomeIcon icon={faGlasses} />
                                 </Link>
                             </div>

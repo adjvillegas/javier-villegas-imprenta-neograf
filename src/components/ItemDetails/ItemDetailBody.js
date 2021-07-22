@@ -13,7 +13,7 @@ import './ItemDetailBody.css'
 //Provider
 import { useCartContext } from '../../providers/Cart/CartContext'
 
-const ItemDetailBody = ({ detail }) => {
+const ItemDetailBody = ({ detail, isFound }) => {
   
     const { addItem, realStock } = useCartContext()
     const [onQuantity, setQuantity] = useState(detail.stock ? 1 : 1)
@@ -55,6 +55,7 @@ const ItemDetailBody = ({ detail }) => {
                                 </div>
                             </div>
                         </div>
+                        { isFound && 
                         <div className="row row-cols-1 item-detail-card-bottom justify-content-center gy-4">
                             <p className="col align-self-end  text-center p-values-total my-0" id="pPrice">$ {detail.precioDesde}</p>
                             <div id="divSubTotal"
@@ -64,6 +65,8 @@ const ItemDetailBody = ({ detail }) => {
                                 <p className="text-initial my-0" id="pSubTotal">$ {(parseInt(detail.precioDesde) * onQuantity).toFixed(2)}</p>
                             </div>
                         </div>
+                        }
+                        { isFound && 
                         <div className="row row-cols-1 justify-content-center align-items-center gy-1">
                             {(stock > 0) ? <button className="col-4 btn btn-danger" type="button" onClick={changeItemCount}>COMPRAR</button> :
                                 <Link to="/cart" className="h-link text-center">                                
@@ -71,7 +74,7 @@ const ItemDetailBody = ({ detail }) => {
                                 </Link>
                             }
                         </div>
-
+                    }
                     </div>
                 </div>
             </div>

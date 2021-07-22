@@ -38,7 +38,7 @@ const OrderForm = ({addOrder}) => {
                             placeholder="Nombre y Apellido"
                             onChange={handleInputChange}
                             value={buyer.nombre} />
-                    </div>
+                    </div>                    
                     <div className="row mb-3">
                         <input
                             type="tel"

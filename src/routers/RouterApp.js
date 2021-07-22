@@ -11,7 +11,7 @@ import Home from '../views/Home/Home';
 
 //Component
 import Cart from '../components/Main/CartContainer';
-import NotFound from '../views/NotFound/NotFound';
+import NotFound from '../views/NotFound/PagNotFound';
 import ItemListContainer from '../components/Main/ItemListContainer';
 import Order from '../components/Main/OrderContainer.js';
 import ItemDetail from  '../components/Main/ItemDetailContainer';
@@ -30,7 +30,7 @@ const RouterApp = () => {
                 <Route path="/home" component={Home}></Route>
                 <Route path="/" exact component={ItemListContainer}></Route>
                 <Route path="/category/:id" exact component={ItemListContainer}></Route>
-                <Route path="/detail/:id" exact component={ItemDetail}></Route>
+                <Route path="/item/:id" exact component={ItemDetail}></Route>
                 <Route path="/cart" exact component={Cart}></Route>
                 <Route path="/order" exact component={Order}></Route>
                 <Route to="/" component={NotFound}></Route>
