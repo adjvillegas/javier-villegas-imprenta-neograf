@@ -15,4 +15,3 @@ var firebaseConfig = {
   export const productCollections = firebase.firestore(app).collection('catalogo')
   export const categoryCollections = firebase.firestore(app).collection('categoria')
   export const OrderCollections = firebase.firestore(app).collection('ordenes')
-  export const batchMode = app.firestore().batch

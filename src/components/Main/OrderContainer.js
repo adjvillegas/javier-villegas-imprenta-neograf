@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useCartContext } from '../../providers/Cart/CartContext'
 
 // db from Firebase
-import { productCollections, OrderCollections, batchMode } from '../../Firebase'
+import { OrderCollections } from '../../Firebase'
 
 //Component
 import OrderForm from '../Order/OrderForm';
@@ -33,35 +33,22 @@ const OrderContainer = () => {
 
             return (newArray)
         })
-        debugger
-        const whereUpdate = productCollections.where("descripcion", "==", items[0].descripcion);
-        debugger
-        const productUpdate = await whereUpdate.get()
-        debugger
-        // .where('id', 'in', carts.map(cart => cart.id))
-        batchMode.add(OrderCollections, { buyer, 
+        
+            await OrderCollections.add(
+            { buyer, 
               items, 
               precio: resume.subTotal, 
               impuesto: resume.importing, 
               total: resume.price, 
               date: date 
-            });
-        
-            // await OrderCollections.add(
-            // { buyer, 
-            //   items, 
-            //   precio: resume.subTotal, 
-            //   impuesto: resume.importing, 
-            //   total: resume.price, 
-            //   date: date 
-            // }).then( ({id}) => {
+            }).then( ({id}) => {
                 
-            //     setOrderId(id)
-            //     clear()
+                setOrderId(id)
+                clear()
 
-            // }).catch(err => {
+            }).catch(err => {
             
-            // })
+            })
     }
 
 
