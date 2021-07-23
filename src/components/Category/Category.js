@@ -23,7 +23,7 @@ const Category = () => {
                     {categorias.map(category => {
                     return (
                         <li key={category.id}>
-                            <Link to={`/category/${category.id}`} className="dropdown-item">
+                            <Link to={`/category/${category.value}`} className="dropdown-item">
                                 {category.descripcion}
                             </Link>
                         </li>

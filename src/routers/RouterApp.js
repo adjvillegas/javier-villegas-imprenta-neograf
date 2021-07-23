@@ -29,7 +29,7 @@ const RouterApp = () => {
             <Switch>
                 <Route path="/home" component={Home}></Route>
                 <Route path="/" exact component={ItemListContainer}></Route>
-                <Route path="/category/:id" exact component={ItemListContainer}></Route>
+                <Route path="/category/:key" exact component={ItemListContainer}></Route>
                 <Route path="/item/:id" exact component={ItemDetail}></Route>
                 <Route path="/cart" exact component={Cart}></Route>
                 <Route path="/order" exact component={Order}></Route>

@@ -16,12 +16,17 @@ const ItemDetailTitle = ({ nameProduct, category }) => {
     useEffect(() => {
 
         ( async () => {
-            const response = await categoryCollections.doc(category).get()
-            setCategoria({ id: response.id, ...response.data()})
+
+            let container = categoryCollections
+            if (category) container = categoryCollections.where("value", "==", category)
+            const response = await container.get()
+            const oObject = response.docs.map( categoria => ({id: categoria.id, ...categoria.data()}))
+            setCategoria(oObject[0])
+            debugger
         })()
 
     }, [category])
-
+    debugger
     return (
             <div>
                         <nav className="navStyle" aria-label="breadcrumb">
@@ -32,7 +37,7 @@ const ItemDetailTitle = ({ nameProduct, category }) => {
                                 </Link>
                             </li>
                             <li className="breadcrumb-item">
-                                <Link to={`/category/${categoria.id}`} className="link-info">
+                                <Link to={`/category/${categoria.value}`} className="link-info">
                                     {categoria.descripcion ? categoria.descripcion : "..."}
                                 </Link>
                             </li>                            

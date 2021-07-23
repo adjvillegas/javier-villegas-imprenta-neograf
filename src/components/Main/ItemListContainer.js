@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 
 //Components
 import ItemList from '../ItemsList/ItemList'
+import NotFound from '../../views/NotFound/PagNotFound';
 
 //Firebase
 import { productCollections } from '../../Firebase'
@@ -11,22 +12,27 @@ import { productCollections } from '../../Firebase'
     const ItemListContainer = () => {
         
         const [items, setItems] = useState([])
-        const { id } = useParams()
+        const { key } = useParams()
 
     useEffect(() => {
         ( async () => {
             let container = productCollections
-            if (id) container = productCollections.where("categoria", "==", id)
+            if (key) container = productCollections.where("categoria", "==", key)
             const response = await container.get()
-            setItems(response.docs.map( item => ({id: item.id, ...item.data()})))
+            if (!response.empty) {
+                setItems(response.docs.map( item => ({id: item.id, ...item.data()})))    
+            } else {
+                setItems(undefined)
+            }
+                  
         })()
-    },[id])
+    },[key])
 
     return (
         <main className="container-fluid">
             <section className="row row-cols-1">
                 <article className="col col-md-12" >
-                    <ItemList products={items}/>                    
+                    {(items !== undefined) ? <ItemList products={items}/> : <NotFound/>}    
                 </article>
             </section>
         </main>
