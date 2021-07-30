@@ -1,34 +1,50 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+//Provider
+import { useCartContext } from '../../providers/Cart/CartContext'
 
 const NewLogin = () => {
 
+    const { newUser, createNewUser } = useCartContext()
+
     const initContainer = {
         user: " ",
-        pass: " ",
-        checkPass: " ",
+        pass: undefined,
+        checkPass: undefined,
     }
 
     const [containerUser, setContainerUser] = useState(initContainer)
+    const [userCreate, setUserCreate] = useState([])
 
     const  handleOnChangeInput = (evnt) => {
-
+     
         let {name, value} = evnt.target
 
-        setContainerUser( [name] = {value}  )
+        setContainerUser({ ...containerUser, [name]: value } )
 
     }
 
+    const handleOnSubmitLoging = async (evnt) => {
 
-    return (
-        <main className="container-fluid">
+        evnt.preventDefault()
+
+        if (containerUser.pass === containerUser.checkPass) {
+            await createNewUser(containerUser)
+            debugger
+        }   
+
+    }
+
+    const onLogin = () => {
+        return (
             <div className="container">
                 <div className="row justify-content-center">
-                    <form className="row justify-content-center">
+                    <form className="row justify-content-center" onSubmit={handleOnSubmitLoging}>
                         <div className="col-7 mb-3 mt-3 d-flex justify-content-center">
                             <h3>Registración</h3>
                         </div>
                         <div className="col-7 mb-3 justify-content-center">
-                            <input type="text" value={containerUser.user} className="form-control text-center" placeholder="Usuario" name="user" onChange={handleOnChangeInput}/>
+                            <input type="email" value={containerUser.user} className="form-control text-center" placeholder="Usuario@dominio.com" name="user" onChange={handleOnChangeInput}/>
                         </div>
                         <div className="col-7 mb-3 justify-content-center">
                             <input type="password" value={containerUser.pass} className="form-control text-center" placeholder="Contraseña" name="pass"  onChange={handleOnChangeInput}/>
@@ -41,7 +57,27 @@ const NewLogin = () => {
                         </div>
                     </form>
                 </div>
-            </div>           
+            </div> 
+        )
+    }
+
+    const onConnect = () => {
+        return (
+            <div>
+            <h1>Bienvenido a Imprenta Neograf!!</h1>
+                <h4>Con la registración de tu cuenta tienes enormes beneficios!!</h4>
+            </div>
+        )
+    }
+
+
+    useEffect(() => {
+        setUserCreate(newUser)
+    },[newUser])
+
+    return (
+        <main className="container-fluid">
+            { (userCreate.length === 0) ? onLogin() : onConnect()}      
         </main>
     )
 }

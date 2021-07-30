@@ -1,4 +1,5 @@
 import firebase from 'firebase/app'
+import "firebase/auth";
 import 'firebase/firestore'
 
 var firebaseConfig = {
@@ -15,3 +16,4 @@ var firebaseConfig = {
   export const productCollections = firebase.firestore(app).collection('catalogo')
   export const categoryCollections = firebase.firestore(app).collection('categoria')
   export const OrderCollections = firebase.firestore(app).collection('ordenes')
+  export const fauth = firebase.auth()

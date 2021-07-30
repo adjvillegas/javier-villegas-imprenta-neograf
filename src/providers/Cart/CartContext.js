@@ -1,6 +1,8 @@
 
 import React, { createContext, useContext, useState }  from 'react'
 
+import {fauth} from '../../Firebase'
+
 export const CartContext = createContext({});
 
 //Hook para importación del CartContext
@@ -9,6 +11,7 @@ export const useCartContext = () => useContext(CartContext)
 export const CartProvider = ({children}) => {
     
     const [carts, setCarts] = useState([]) 
+    const [newUser, setNewUser] = useState([])
 
     const getResumen = (oData) => {
 
@@ -71,18 +74,40 @@ export const CartProvider = ({children}) => {
         
     }
 
+    const createNewUser = async (oObject) => {
+        debugger
+        await fauth.createUserWithEmailAndPassword(oObject.user, oObject.pass)
+        .then((userCredential) => {
+          // Signed in 
+          debugger
+          setNewUser(userCredential.user);
+          console.log(userCredential.user)
+          // ...
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode)
+          console.log(errorMessage)
+          // ..
+        });
+
+    }
+
 
     return (
 
         <CartContext.Provider value={
-            {carts, 
+            {carts,
+             newUser,
              isInCart,
              realStock, 
              addItem, 
              removeItem, 
              clear,
              getResumen,
-             getCurrentDay}}>        
+             getCurrentDay,
+             createNewUser}}>        
             {children}
         </CartContext.Provider>
     )
