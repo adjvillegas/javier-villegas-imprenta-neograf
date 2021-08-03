@@ -11,7 +11,7 @@ export const useCartContext = () => useContext(CartContext)
 export const CartProvider = ({children}) => {
     
     const [carts, setCarts] = useState([]) 
-    const [newUser, setNewUser] = useState([])
+    const [User, setUser] = useState([])
 
     const getResumen = (oData) => {
 
@@ -74,14 +74,18 @@ export const CartProvider = ({children}) => {
         
     }
 
+    const getUser = async () => {
+        // await 
+    }
+
     const createNewUser = async (oObject) => {
-        debugger
+       
         await fauth.createUserWithEmailAndPassword(oObject.user, oObject.pass)
         .then((userCredential) => {
           // Signed in 
-          debugger
-          setNewUser(userCredential.user);
-          console.log(userCredential.user)
+         
+          setUser({id: userCredential.user.uid, email: userCredential.user.email});
+         
           // ...
         })
         .catch((error) => {
@@ -99,7 +103,7 @@ export const CartProvider = ({children}) => {
 
         <CartContext.Provider value={
             {carts,
-             newUser,
+             User,
              isInCart,
              realStock, 
              addItem, 
@@ -107,6 +111,7 @@ export const CartProvider = ({children}) => {
              clear,
              getResumen,
              getCurrentDay,
+             getUser,
              createNewUser}}>        
             {children}
         </CartContext.Provider>

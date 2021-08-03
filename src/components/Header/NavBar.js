@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 // Component
 import Category from '../Category/Category'
 import CartWidget from '../CartWidget/CartWidget'
+import UserAccess from '../User/UserAccess'
 
 // Styles
 import './NavBar.css'
@@ -42,7 +43,7 @@ const navBar = () => {
                 <div className="col-2">
                     <div className="collapse navbar-collapse justify-content-start">
                         <ul className="navbar-nav">
-                            <li className="navbar-item"><Link to="/login" className="nav-link">Iniciar Sesión</Link></li>
+                            <UserAccess/>
                             <CartWidget/>
                         </ul>
                     </div>

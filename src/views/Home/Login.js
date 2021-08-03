@@ -3,10 +3,26 @@ import React from 'react'
 //LINK ROUTER DOM
 import { Link } from 'react-router-dom';
 
+//Provider
+import { useCartContext } from '../../providers/Cart/CartContext'
+
 const Login = () => {
+
+    const { User, getUser } = useCartContext()
+
+    const handleOnSubmitLoging = (evnt) => {
+        evnt.preventDefault()
+
+        // if (containerUser.pass === containerUser.checkPass) {
+        //     await getUser(containerUser)
+            
+        // }   
+    }
+
     return (
         <main>
             <div className="container d-flex justify-content-center">
+            <form className="row justify-content-center" onSubmit={handleOnSubmitLoging}>
                 <div className="row-7 mt-5">
                     <div className="col-md-12 d-flex justify-content-center">
                         <h4>INICIE SESIÓN</h4>
@@ -28,6 +44,7 @@ const Login = () => {
                         <Link to="/newLogin">Crear Usuario</Link>
                     </div>
                 </div>
+                </form>
             </div>
         </main>
     )

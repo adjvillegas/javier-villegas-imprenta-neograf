@@ -5,7 +5,7 @@ import { useCartContext } from '../../providers/Cart/CartContext'
 
 const NewLogin = () => {
 
-    const { newUser, createNewUser } = useCartContext()
+    const { User, createNewUser } = useCartContext()
 
     const initContainer = {
         user: " ",
@@ -30,7 +30,7 @@ const NewLogin = () => {
 
         if (containerUser.pass === containerUser.checkPass) {
             await createNewUser(containerUser)
-            debugger
+            
         }   
 
     }
@@ -64,18 +64,19 @@ const NewLogin = () => {
     const onConnect = () => {
         return (
             <div>
-            <h1>Bienvenido a Imprenta Neograf!!</h1>
-                <h4>Con la registración de tu cuenta tienes enormes beneficios!!</h4>
+                <h1 className="d-flex justify-content-center">Bienvenido a Imprenta Neograf!!</h1>
+                <h4 className="d-flex justify-content-center">Con la registración de tu cuenta tienes enormes beneficios!!</h4>
             </div>
         )
     }
 
 
     useEffect(() => {
-        setUserCreate(newUser)
-    },[newUser])
-
+        setUserCreate(User)
+    },[User])
+    
     return (
+       
         <main className="container-fluid">
             { (userCreate.length === 0) ? onLogin() : onConnect()}      
         </main>
