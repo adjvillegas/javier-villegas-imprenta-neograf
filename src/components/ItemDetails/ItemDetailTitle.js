@@ -22,11 +22,11 @@ const ItemDetailTitle = ({ nameProduct, category }) => {
             const response = await container.get()
             const oObject = response.docs.map( categoria => ({id: categoria.id, ...categoria.data()}))
             setCategoria(oObject[0])
-            debugger
+            
         })()
 
     }, [category])
-    debugger
+  
     return (
             <div>
                         <nav className="navStyle" aria-label="breadcrumb">

@@ -14,8 +14,8 @@ const UserPanel = () => {
         
         <li className="navbar-item">
             { (!User.id) ? 
-        <Link to={`/login/${true}`} className="nav-link">Iniciar Sesión</Link> : 
-        <Link to={`/login/${false}`} className="nav-link">{User.email}</Link> 
+        <Link to="/login" className="nav-link">Iniciar Sesión</Link> : 
+        <Link to="/login" className="nav-link">{User.email}</Link> 
         }
         </li>
         

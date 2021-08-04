@@ -22,7 +22,7 @@ const Login = () => {
     const { read } = useParams()
 
     const handleOnSubmitLoging = async (oObject) => {
-        debugger
+       
         if (getViewUser) {
             await getUser(oObject)
         } else {
