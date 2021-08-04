@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 //Provider
 import { useCartContext } from '../../providers/Cart/CartContext'
@@ -14,7 +14,6 @@ const NewLogin = () => {
     }
 
     const [containerUser, setContainerUser] = useState(initContainer)
-    const [userCreate, setUserCreate] = useState([])
 
     const  handleOnChangeInput = (evnt) => {
      
@@ -61,25 +60,19 @@ const NewLogin = () => {
         )
     }
 
-    const onConnect = () => {
-        return (
-            <div>
-                <h1 className="d-flex justify-content-center">Bienvenido a Imprenta Neograf!!</h1>
-                <h4 className="d-flex justify-content-center">Con la registración de tu cuenta tienes enormes beneficios!!</h4>
-            </div>
-        )
-    }
+    // const onConnect = () => {
+    //     return (
+ 
+    //     )
+    // }
 
-
-    useEffect(() => {
-        setUserCreate(User)
-    },[User])
     
     return (
        
         <main className="container-fluid">
-            { (userCreate.length === 0) ? onLogin() : onConnect()}      
+            {/* { (!User.id) ? onLogin() : onConnect()}       */}
         </main>
     )
 }
+
 export default NewLogin

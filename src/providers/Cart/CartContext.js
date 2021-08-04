@@ -74,26 +74,37 @@ export const CartProvider = ({children}) => {
         
     }
 
-    const getUser = async () => {
-        // await 
+    const getUser = async (oObject) => {
+     
+        await fauth.signInWithEmailAndPassword(oObject.user, oObject.pass)
+        .then((userCredential) => {
+     
+          setUser({id: userCredential.user.uid, email: userCredential.user.email, create: false});
+   
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode)
+          console.log(errorMessage)          
+        });
+
     }
 
     const createNewUser = async (oObject) => {
        
         await fauth.createUserWithEmailAndPassword(oObject.user, oObject.pass)
         .then((userCredential) => {
-          // Signed in 
          
-          setUser({id: userCredential.user.uid, email: userCredential.user.email});
-         
-          // ...
+          setUser({id: userCredential.user.uid, email: userCredential.user.email, create: true});
+
         })
         .catch((error) => {
           var errorCode = error.code;
           var errorMessage = error.message;
           console.log(errorCode)
           console.log(errorMessage)
-          // ..
+      
         });
 
     }

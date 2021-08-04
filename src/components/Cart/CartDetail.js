@@ -35,7 +35,10 @@ const CartDetail = () => {
                 <Carttbody carts={carts} removeItem={removeItem} show={enabled}/>
             </table>       
         </div> 
-        {(carts.length > 0) ? <CartResumen carts={carts}/> :  <h1 className="text-center">No Existen registros</h1>}
+        {(carts.length > 0) ? 
+        <CartResumen carts={carts}/> :  
+        <h1 className="text-center">No Existen registros</h1>
+        }
                 <CartFooter show={carts.length}/>        
         </div>
     )

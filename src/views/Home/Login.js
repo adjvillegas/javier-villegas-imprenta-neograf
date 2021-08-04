@@ -1,51 +1,49 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+// import React, { useState } from 'react'
+
+// import { Redirect } from 'react-router';
 
 //LINK ROUTER DOM
-import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+// import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
 
 //Provider
 import { useCartContext } from '../../providers/Cart/CartContext'
 
+//Container
+import OnLogon from '../../components/User/OnLogon';
+import OnCreateUser from '../../components/User/OnCreateUser';
+
 const Login = () => {
 
-    const { User, getUser } = useCartContext()
+    const { User, getUser, createNewUser } = useCartContext()
+    const [getViewUser, setGetViewUser] = useState('')
+    const { read } = useParams()
 
-    const handleOnSubmitLoging = (evnt) => {
-        evnt.preventDefault()
+    const handleOnSubmitLoging = async (oObject) => {
+        debugger
+        if (getViewUser) {
+            await getUser(oObject)
+        } else {
+            await createNewUser(oObject)
+        }
 
-        // if (containerUser.pass === containerUser.checkPass) {
-        //     await getUser(containerUser)
-            
-        // }   
     }
+
+    const changeView = (evnt) => {
+        setGetViewUser(!getViewUser)
+    }
+
+    useEffect(() => {
+        setGetViewUser({ read })
+    }, [read])
 
     return (
         <main>
-            <div className="container d-flex justify-content-center">
-            <form className="row justify-content-center" onSubmit={handleOnSubmitLoging}>
-                <div className="row-7 mt-5">
-                    <div className="col-md-12 d-flex justify-content-center">
-                        <h4>INICIE SESIÓN</h4>
-                    </div>
-                    <div className="row-7 mt-3">
-                        <div className="col-sm">
-                            <input type="text" className="form-control form-control-lg" placeholder="Usuario" name="usuario"/>
-                        </div>
-                    </div>
-                    <div className="row-7 mt-2">
-                        <div className="col-sm">
-                            <input type="password" className="form-control form-control-lg" placeholder="Contraseña" name="password"/>
-                        </div>
-                    </div>
-                    <div className="col-12 d-flex justify-content-center mt-4 mb-4">
-                        <button type="submit" className="btn btn-primary">Iniciar</button>
-                    </div>
-                    <div className="col-12 d-flex justify-content-center mt-4 mb-4">
-                        <Link to="/newLogin">Crear Usuario</Link>
-                    </div>
-                </div>
-                </form>
-            </div>
+            {(User.length < 1) && <OnLogon fnHandleSubmit={handleOnSubmitLoging} read={getViewUser} fnChangeView={changeView} />}
+            {(!User.create && User.id) && <Redirect to="/" />}
+            {(User.create && User.id) && <OnCreateUser/>}
         </main>
     )
 }
