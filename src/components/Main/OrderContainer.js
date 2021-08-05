@@ -7,12 +7,12 @@ import { useCartContext } from '../../providers/Cart/CartContext'
 import { OrderCollections } from '../../Firebase'
 
 //Component
-import OrderForm from '../Order/OrderForm';
+import OrderFormContainer from '../Order/OrderFormContainer';
 import OrderBuy from '../Order/OrderBuy.js';
 
 const OrderContainer = () => {
 
-    const { carts, clear, getResumen, getCurrentDay } = useCartContext()
+    const { carts, User, clear, getResumen, getCurrentDay } = useCartContext()
 
     const [ orderId, setOrderId ] = useState('')    
 
@@ -55,7 +55,7 @@ const OrderContainer = () => {
 
     return (
         <main className="container-fluid">   
-            {(!orderId) ? <OrderForm addOrder={addOrder}/> : <OrderBuy myOrder={orderId}/>}
+            {(!orderId ) ? <OrderFormContainer addOrder={addOrder} user={User}/> : <OrderBuy myOrder={orderId}/>}
         </main>      
     )
 }
