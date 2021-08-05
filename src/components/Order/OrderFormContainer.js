@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import FormAnonimus from './FormAnonimus'
 import FormLogin from './FormLogin'
 
+//Styles
+import './OrderFormContainer.css'
+
 const OrderFormContainer = ({addOrder, user}) => {
 
     const initialBuyerState = {
@@ -26,8 +29,6 @@ const OrderFormContainer = ({addOrder, user}) => {
 
     const handleOnSubmit = async (evnt) => {
 
-        evnt.preventDefault()
-
         addOrder(buyer)
 
         setBuyer({...initialBuyerState})
@@ -35,7 +36,7 @@ const OrderFormContainer = ({addOrder, user}) => {
     }        
 
     return (
-        <div>
+        <div className="container-confirm">
         {!user.email ? <FormAnonimus fnHandleOnSubmit={handleOnSubmit} fnHandleInputChange={handleInputChange} aBuyer={buyer}/> :
                        <FormLogin fnHandleOnSubmit={handleOnSubmit} user={user.email} fnSetUserBuyer={setUserBuyer}/>}
         </div>                    

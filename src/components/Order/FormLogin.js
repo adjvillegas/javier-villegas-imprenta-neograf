@@ -1,18 +1,16 @@
 import React from 'react'
 
-//Styles
-import './FormLogin.css'
-
 const FormLogin = ({fnHandleOnSubmit, user, fnSetUserBuyer}) => {
 
     const confirmShel = () => {
-
+        fnSetUserBuyer(user)
+        fnHandleOnSubmit()
     }
 
     return (
-        <div className="container-confirm">
-            <h2 className="text-center">Confirmar compra con usuario {user}</h2>
-            <button type="submit" className="col-5 btn btn-success" onClick={confirmShel}>Confirmar</button>
+        <div className="row row-cols-1 justify-content-center">
+            <h2 className="col">Confirmar compra con usuario {user}</h2>
+            <button type="submit" className="col-2 btn btn-success text-center mt-5" onClick={confirmShel}>Confirmar</button>
         </div>
     )
 }
