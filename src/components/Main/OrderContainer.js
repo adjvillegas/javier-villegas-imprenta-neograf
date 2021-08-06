@@ -17,7 +17,7 @@ const OrderContainer = () => {
     const [ orderId, setOrderId ] = useState('')    
 
     const addOrder = async (oObject) => {
-        
+   
         let date = getCurrentDay('.')
         let buyer = oObject
         let resume = getResumen(carts)
@@ -43,12 +43,13 @@ const OrderContainer = () => {
               date: date,
               estatus: "Generado"
             }).then( ({id}) => {
-                
+                debugger
                 setOrderId(id)
                 clear()
 
             }).catch(err => {
-            
+                debugger
+                console.log(err)
             })
     }
 

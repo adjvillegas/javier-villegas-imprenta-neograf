@@ -1,13 +1,11 @@
 import React from 'react'
 
-
-
 const OrderList = ({ User, orderList }) => {
 
     return (
         <div>
             <ul className="navbar-bar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">{User.email}</ul>
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div className="offcanvas-header">
                     <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">Mis Ordenes</h5>
                     <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -20,7 +18,7 @@ const OrderList = ({ User, orderList }) => {
                                 <p><strong>Codigo de Orden:</strong> <em className="text-primary">{order.id}</em></p>
                             </div>
                             <div>
-                                <table class="table">
+                                <table className="table">
                                     <thead>
                                         <tr>
                                             <th scope="col"></th>

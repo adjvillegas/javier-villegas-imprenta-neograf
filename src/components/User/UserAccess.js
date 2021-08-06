@@ -15,7 +15,7 @@ import { OrderCollections } from '../../Firebase'
 const UserPanel = () => {
 
     const { User } = useCartContext()
-  
+
     const [orderList, setOrderList] = useState([])
 
     useEffect(() => {
@@ -23,8 +23,11 @@ const UserPanel = () => {
         (async () => {
 
             let container = OrderCollections
-            if (User) container = OrderCollections.where("buyer.email", "==", "adj.villegas@gmail.com")
+         
+            if (User.email) container = OrderCollections.where("buyer.email", "==", User.email)
+
             const response = await container.get()
+            
             if (!response.empty) {
                 setOrderList(response.docs.map(order => ({ id: order.id, ...order.data() })))
             } else {
@@ -33,18 +36,18 @@ const UserPanel = () => {
 
         })()
 
-    },)
+    })
 
 
     return (
-    
+
         <li className="navbar-item">
-            { (!User.id) ? 
-                <Link to="/login" className="nav-link">Iniciar Sesión</Link> : 
-                <OrderList User={User} orderList={orderList}/>
+            {(!User.id) ?
+                <Link to="/login" className="nav-link">Iniciar Sesión</Link> :
+                <OrderList User={User} orderList={orderList} />
             }
         </li>
-        
+
     )
 }
 

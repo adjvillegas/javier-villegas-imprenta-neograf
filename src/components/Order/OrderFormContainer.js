@@ -22,8 +22,8 @@ const OrderFormContainer = ({addOrder, user}) => {
     }
 
     const handleOnSubmit = async (evnt) => {
-   
-        addOrder(buyer)
+       
+        await addOrder(buyer)
 
         setBuyer({...initialBuyerState})
 
