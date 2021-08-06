@@ -20,12 +20,12 @@ const navBar = () => {
             <h3 className="fw-bold">Imprenta Neograf</h3>
         <nav>
             <div className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="col-2 d-flex  justify-content-center">
+                <div className="col-3 d-flex  justify-content-center">
                     <Link to="/" className="navbar-brand">
                         <img src={logo} className="navLogo" alt="Imagen de Logo"></img>
                     </Link>
                 </div>
-                <div className="col-8">
+                <div className="col-6">
                     <div className="collapse navbar-collapse justify-content-center">
                         <ul className="navbar-nav">
                             <li className="navbar-item"><Link to="/home" className="nav-link">Inicio</Link></li>
@@ -40,7 +40,7 @@ const navBar = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="col-2">
+                <div className="col-3">
                     <div className="collapse navbar-collapse justify-content-start">
                         <ul className="navbar-nav">
                             <UserAccess/>

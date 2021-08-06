@@ -15,7 +15,7 @@ function CartWidget() {
     const { carts } = useCartContext()
   
     return (
-            <li className="navbar-item">
+            <li className="navbar-item ms-5">
                 <div className="position-relative">
                 {(carts.length > 0) &&
                     <Link to="/cart">

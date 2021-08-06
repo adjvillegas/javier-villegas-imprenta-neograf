@@ -17,7 +17,7 @@ import OnCreateUser from '../../components/User/OnCreateUser';
 
 const Login = () => {
 
-    const { User, getUser, createNewUser } = useCartContext()
+    const { user, getUser, createNewUser } = useCartContext()
     const [getViewUser, setGetViewUser] = useState('')
     const { read } = useParams()
 
@@ -41,9 +41,9 @@ const Login = () => {
 
     return (
         <main>
-            {(User.length < 1) && <OnLogon fnHandleSubmit={handleOnSubmitLoging} read={getViewUser} fnChangeView={changeView} />}
-            {(!User.create && User.id) && <Redirect to="/" />}
-            {(User.create && User.id) && <OnCreateUser/>}
+            {(user.length < 1) && <OnLogon fnHandleSubmit={handleOnSubmitLoging} read={getViewUser} fnChangeView={changeView} />}
+            {(!user.create && user.id) && <Redirect to="/" />}
+            {(user.create && user.id) && <OnCreateUser/>}
         </main>
     )
 }

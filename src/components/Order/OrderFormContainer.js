@@ -1,41 +1,53 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-import FormAnonimus from './FormAnonimus'
+//Provider
+import { useCartContext } from '../../providers/Cart/CartContext'
+
+//Constructor
 import FormLogin from './FormLogin'
+import OrderBuy from '../Order/OrderBuy.js';
 
 //Styles
 import './OrderFormContainer.css'
 
-const OrderFormContainer = ({addOrder, user}) => {
+const OrderFormContainer = ( {User} ) => {
 
-    const initialBuyerState = {
-        nombre: '',
-        telefono: '',
-        email: user.email
-    }
+    const { user, newOrder, addOrder } = useCartContext()
 
-    const [ buyer, setBuyer ] = useState(initialBuyerState)
+    // const initialBuyerState = {
+    //     nombre: '',
+    //     telefono: '',
+    //     email: user.email
+    // }
 
-    const handleInputChange = (evnt) => {
-        const { name, value } = evnt.target
-        setBuyer({ ...buyer, [name]: value })
-    }
+    // const [ buyer, setBuyer ] = useState(initialBuyerState)
+
+    // const handleInputChange = (evnt) => {
+    //     const { name, value } = evnt.target
+    //     setBuyer({ ...buyer, [name]: value })
+    // }
 
     const handleOnSubmit = async (evnt) => {
-       
-        await addOrder(buyer)
 
-        setBuyer({...initialBuyerState})
-
+        await addOrder(user)
+      
     }        
 
+    // const fnInitBuyer = () => {
+    //     setBuyer({...initialBuyerState})
+    // }
+ 
     return (
         <div className="container-confirm">
-        {!user.email ? <FormAnonimus fnHandleOnSubmit={handleOnSubmit} fnHandleInputChange={handleInputChange} aBuyer={buyer}/> :
-                       <FormLogin fnHandleOnSubmit={handleOnSubmit} user={user.email}/>}
+        {!newOrder ? <FormLogin fnHandleOnSubmit={handleOnSubmit} user={user.email}/>:
+                      <OrderBuy myOrder={newOrder}/> }
         </div>                    
         
     )
+}
+
+OrderFormContainer.defaultProps  = {
+        user: { email: undefined, }
 }
 
 export default OrderFormContainer

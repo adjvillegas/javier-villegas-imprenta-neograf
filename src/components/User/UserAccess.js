@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 //LINK ROUTER DOM
 import { Link } from 'react-router-dom';
@@ -9,42 +9,17 @@ import { useCartContext } from '../../providers/Cart/CartContext'
 //Content
 import OrderList from '../Order/OrderList'
 
-//Firebase
-import { OrderCollections } from '../../Firebase'
-
 const UserPanel = () => {
 
-    const { User } = useCartContext()
+    const { user, order } = useCartContext()
 
-    const [orderList, setOrderList] = useState([])
-
-    useEffect(() => {
-
-        (async () => {
-
-            let container = OrderCollections
-         
-            if (User.email) container = OrderCollections.where("buyer.email", "==", User.email)
-
-            const response = await container.get()
-            
-            if (!response.empty) {
-                setOrderList(response.docs.map(order => ({ id: order.id, ...order.data() })))
-            } else {
-                setOrderList(undefined)
-            }
-
-        })()
-
-    })
-
-
+    console.log(order)
     return (
 
         <li className="navbar-item">
-            {(!User.id) ?
+            {(!user.id) ?
                 <Link to="/login" className="nav-link">Iniciar Sesión</Link> :
-                <OrderList User={User} orderList={orderList} />
+                <OrderList User={user} orderList={order} />
             }
         </li>
 
