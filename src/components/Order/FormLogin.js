@@ -1,10 +1,9 @@
 import React from 'react'
 
-const FormLogin = ({fnHandleOnSubmit, user, fnSetUserBuyer}) => {
+const FormLogin = ({ fnHandleOnSubmit, user }) => {
 
-    const confirmShel = () => {
-        fnSetUserBuyer(user)
-        fnHandleOnSubmit()
+    const confirmShel = (evnt) => {
+        fnHandleOnSubmit(evnt)
     }
 
     return (

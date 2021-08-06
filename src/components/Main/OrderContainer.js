@@ -41,7 +41,7 @@ const OrderContainer = () => {
               impuesto: resume.importing, 
               total: resume.price, 
               date: date,
-              estatus: "Generdo"
+              estatus: "Generado"
             }).then( ({id}) => {
                 
                 setOrderId(id)

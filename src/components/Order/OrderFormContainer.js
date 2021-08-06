@@ -11,16 +11,10 @@ const OrderFormContainer = ({addOrder, user}) => {
     const initialBuyerState = {
         nombre: '',
         telefono: '',
-        email: ''
+        email: user.email
     }
 
     const [ buyer, setBuyer ] = useState(initialBuyerState)
-
-    const setUserBuyer = (val) => {
-
-        setBuyer({ ...buyer, email: val})
-
-    }
 
     const handleInputChange = (evnt) => {
         const { name, value } = evnt.target
@@ -28,7 +22,7 @@ const OrderFormContainer = ({addOrder, user}) => {
     }
 
     const handleOnSubmit = async (evnt) => {
-
+   
         addOrder(buyer)
 
         setBuyer({...initialBuyerState})
@@ -38,7 +32,7 @@ const OrderFormContainer = ({addOrder, user}) => {
     return (
         <div className="container-confirm">
         {!user.email ? <FormAnonimus fnHandleOnSubmit={handleOnSubmit} fnHandleInputChange={handleInputChange} aBuyer={buyer}/> :
-                       <FormLogin fnHandleOnSubmit={handleOnSubmit} user={user.email} fnSetUserBuyer={setUserBuyer}/>}
+                       <FormLogin fnHandleOnSubmit={handleOnSubmit} user={user.email}/>}
         </div>                    
         
     )
