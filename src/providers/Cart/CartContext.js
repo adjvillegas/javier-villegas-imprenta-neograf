@@ -82,16 +82,14 @@ export const CartProvider = ({children}) => {
           date: date,
           estatus: "Generado"
         }
-     
-        setNewOrder(prev => [...prev, {...oOrder, oOrder } ])
-
+  
             await OrderCollections.add(oOrder).then( ({id}) => {
 
                 setNewOrder(id)
                 clear()
 
             }).catch(err => {
-                debugger
+               
                 console.log(err)
             })
 
