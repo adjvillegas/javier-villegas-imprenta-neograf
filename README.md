@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Tienda online Imprenta Neograf
+Es una e-commmers para la venta y promoción del catalogo de venta de la imprenta NeoGraf.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción
 
-## Available Scripts
+Este es un proyecto con fines educativos, para la presentación del trabajo final del curso de React en CODERHOUSE. Se uso una imprenta Real, que no cuenta con su e-commers para poder cumplir los objetivos y metas propuestas en el curso
 
-In the project directory, you can run:
+## Instalación
 
-### `npm start`
+Puede descargar el repositorio con el siguiente comando
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+git clone https://github.com/adjvillegas/javier-villegas-imprenta-neograf.git
+```
+El proyecto emplea las siguientes dependencias:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+REACT-ROUTER-DOM
+```bash
+npm install react-router-dom
+```
 
-### `npm test`
+FIREBASE
+```bash
+npm install --save firebase
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+BOOSTRAP
+```bash
+Este ya se encuentra incorporado, no necesitas instalar nada
+```
 
-### `npm run build`
+Parado en la raíz del proyecto corré el comando
+```bash
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Finalizado todo, necesitas correr el proyecto, usa:
+```bash
+npm start
+```
+estará disponible en http://localhost:3000
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Cuenta con 📋
+-Registro de usuarios: Firebase Authentication, solo Correo Electronico/Contraseña. Menos de 7 caracteres en contraseña, no esta validado
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-Filtro por categorías: tomando las categorías de la base de datos (firebase) se generan filtros de productos.
 
-### `npm run eject`
+-Carrito: cuenta con una vista de los productos agregados al carrito, con información de la compra, donde se puede eliminar items.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-Vistas de productos: vista de productos con foto.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-Vista de cada item: vista con todos los detalles del producto y la opción de agregar una cantidad del mismo.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Aplicación en funcionamiento 🛠️
 
-## Learn More
+https://firebasestorage.googleapis.com/v0/b/imprentaneografreact.appspot.com/o/Imprenta%20Neograf%20-%20Google%20Chrome%202021-08-08%2020-50-53.gif?alt=media&token=067ce28f-0b67-4288-a1a6-94d7feb1fe1e
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+https://firebasestorage.googleapis.com/v0/b/imprentaneografreact.appspot.com/o/Imprenta%20Neograf%20-%20Google%20Chrome%202021-08-08%2020-50-53.gif?alt=media&token=067ce28f-0b67-4288-a1a6-94d7feb1fe1e
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Autores y reconocimientos ✒️
+Los agradecimientos estan para el equipo de CODERHOUSE y a la camada 16910.
+Autor: Villegas Javier
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
