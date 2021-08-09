@@ -54,7 +54,7 @@ estará disponible en http://localhost:3000
 
 ## Aplicación en funcionamiento 🛠️
 
-![image](https://firebasestorage.googleapis.com/v0/b/imprentaneografreact.appspot.com/o/Imprenta%20Neograf%20-%20par1.gif?alt=media&token=89617437-d250-465e-9716-7a26f3b97e29)
+![image](https://firebasestorage.googleapis.com/v0/b/imprentaneografreact.appspot.com/o/Imprenta%20Neograf%20-%20init.gif?alt=media&token=f4451eb6-47b9-416b-beb7-6e3730b197e6)
 
 ![image](https://firebasestorage.googleapis.com/v0/b/imprentaneografreact.appspot.com/o/Imprenta%20Neograf%20-%20Google%20Chrome%202021-08-08%2020-50-53.gif?alt=media&token=067ce28f-0b67-4288-a1a6-94d7feb1fe1e)
 
