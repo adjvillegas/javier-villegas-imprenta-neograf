@@ -54,9 +54,11 @@ estará disponible en http://localhost:3000
 
 ## Aplicación en funcionamiento 🛠️
 
-![image](https://firebasestorage.googleapis.com/v0/b/imprentaneografreact.appspot.com/o/Imprenta%20Neograf%20-%20init.gif?alt=media&token=f4451eb6-47b9-416b-beb7-6e3730b197e6)
+Parte 1: (Quedo muy pesado)
+https://firebasestorage.googleapis.com/v0/b/imprentaneografreact.appspot.com/o/Imprenta%20Neograf%20-%20init.gif?alt=media&token=c46e0cea-89ad-4657-9c1a-0980bc3d88d8
 
-![image](https://firebasestorage.googleapis.com/v0/b/imprentaneografreact.appspot.com/o/Imprenta%20Neograf%20-%20Google%20Chrome%202021-08-08%2020-50-53.gif?alt=media&token=067ce28f-0b67-4288-a1a6-94d7feb1fe1e)
+Parte 2:
+![image](https://firebasestorage.googleapis.com/v0/b/imprentaneografreact.appspot.com/o/Imprenta%20Neograf%20-%20Google%20Chrome%202021-08-08%2020-50-53.gif?alt=media&token=d25db8ef-5a60-47ed-b750-1a01fe8c8186)
 
 ## Autores y reconocimientos ✒️
 Los agradecimientos estan para el equipo de CODERHOUSE y a la camada 16910.
